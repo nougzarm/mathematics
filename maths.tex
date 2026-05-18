@@ -13,7 +13,7 @@
 \tableofcontents
 
 \chapter{Groups}
-\section{Magmas}
+\section{Magmas and monoids}
 
 \begin{definition} \label{def-magma}
     A magma is a pair $(S, \ast)$ with $S$ a set and 
@@ -35,7 +35,7 @@
     An identity element of a given magma $(S, \ast)$ is an element $e \in S$, such that $\forall a \in S, \; e \ast a = a \ast e = a$.
 \end{definition}
 
-\begin{theorem} \label{thm-magma-id-element-unicity}
+\begin{theorem} \label{thm-magma-id-element-uniqueness}
     If a magma $(S, \ast)$ has an identity element, then it is unique.
 \end{theorem}
 
@@ -43,32 +43,56 @@
     If $e, e^{\prime} \in S$ are identity elements for $\ast$, then $e = e \ast e^{\prime} = e^{\prime}$.
 \end{proof}
 
+\begin{definition} \label{def-magma-invertible-element}
+    Given a magma $(S, \ast)$ with an identity element $e \in S$. An element $a \in S$ is said to be invertible if there exists $b$ such that $a \ast b = b \ast a = e$. $b$ is then called an inverse of $a$.
+\end{definition}
+
+\begin{definition} \label{def-monoid}
+    A monoid is an associative magma with an identity element.
+\end{definition}
+
+\begin{theorem} \label{thm-magma-inverse-uniqueness}
+    If $(S, \ast)$ is a monoid, then every invertible element $a \in S$ has a unique inverse, denoted by $a^{-1}$.
+\end{theorem}
+
+\begin{proof}
+    Let $b, b^{\prime} \in S$ be two inverses of $a$. Then we have
+    $$
+    b = b \ast (a \ast b^{\prime}) = (b \ast a) \ast b^{\prime} = b^{\prime}.
+    $$
+\end{proof}
+
 \begin{notation} \label{not-magma-exposant}
-    If $(S, \ast)$ is an associative magma with an identity element $e \in S$, then for all $a \in S$, we denote:
+    If $(S, \ast)$ is a monoid, then for all $a \in S$, we denote:
     $$
     a^0 = e \quad \text{and} \quad a^n = \underbrace{a \ast \dots \ast a}_{n \text{ times}} \quad (\text{for } n \geq 1).
     $$
 \end{notation}
 
-\begin{definition} \label{def-magma-invertible-element}
-    Given a magma $(S, \ast)$ with an identity element $e \in S$. An element $a \in S$ is said to be invertible if there exists $b$ such that $a \ast b = b \ast a = e$. $b$ is then called an inverse of $a$.
-\end{definition}
 
-\begin{theorem} \label{thm-magma-inverse-unicity}
-    If $(S, \ast)$ is an associative magma, then every invertible element $a \in S$ has a unique inverse, denoted by $a^{-1}$.
-\end{theorem}
+\begin{proposition}
+    Given a monoid $(S, \ast)$, and $a, x, y \in S$,
+    \begin{enumerate}[label=(\roman*)]
+        \item If $a \ast x = a \ast y$ and $a$ is invertible, then $x = y$,
+        \item If $x$ is invertible, then $x^{-1}$ is invertible and $(x^{-1})^{-1} = x$.
+        \item If $x$ and $y$ are invertible, then $x \ast y$ is also invertible and $(x \ast y)^{-1} = y^{-1} \ast x^{-1}$,
+        \item If $x$ is invertible, then for all $n \in \mathbb{N}, \; x^n$ is also invertible and $(x^n)^{-1} = (x^{-1})^n$. Hence we can denote $x^{-n} = (x^n)^{-1}$,
+    \end{enumerate}
+\end{proposition}
 
 \begin{proof}
-    Let $b, c \in S$ be two inverses of $a$. Then we have
-    $$
-    b = b \ast (a \ast c) = (b \ast a) \ast c = c.
-    $$
+    \begin{enumerate}[label=(\roman*)]
+        \item $x = (a^{-1} \ast a) \ast x = a^{-1} \ast (a \ast x) = a^{-1} \ast (a \ast y) = (a^{-1} \ast a) \ast y = y$,
+        \item Direct consequence of the invertible element definition,
+        \item $(x \ast y) \ast (y^{-1} \ast x^{-1}) = x \ast y \ast y^{-1} \ast x^{-1} = e$ and similarly for the other way,
+        \item It suffices to combine the two preceding properties in a proof by induction.
+    \end{enumerate}
 \end{proof}
 
 \section{Groups}
 
 \begin{definition} \label{def-group}
-    A group is an associative magma with an identity element, such that every element is invertible.
+    A group is a monoid such that every element is invertible.
 \end{definition}
 
 \end{document}

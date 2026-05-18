@@ -17,9 +17,9 @@
 
 \begin{definition} \label{def-magma}
     A magma is a pair $(S, \ast)$ with $S$ a set and 
-    \begin{center}
-        $\ast \colon S \times S \to S$
-    \end{center}
+    $$
+    \ast \colon S \times S \to S
+    $$
     an internal composition law.
 \end{definition}
 
@@ -43,8 +43,15 @@
     If $e, e^{\prime} \in S$ are identity elements for $\ast$, then $e = e \ast e^{\prime} = e^{\prime}$.
 \end{proof}
 
+\begin{notation} \label{not-magma-exposant}
+    If $(S, \ast)$ is an associative magma with an identity element $e \in S$, then for all $a \in S$, we denote:
+    $$
+    a^0 = e \quad \text{and} \quad a^n = \underbrace{a \ast \dots \ast a}_{n \text{ times}} \quad (\text{for } n \geq 1).
+    $$
+\end{notation}
+
 \begin{definition} \label{def-magma-invertible-element}
-    Given a magma $(S, \ast)$ with an identity element $e \in S$. An element $a \in S$ is said to be invertible if there exists $b$ such that $a \ast b = b \ast a = e$. $b$ is so called an inverse of $a$.
+    Given a magma $(S, \ast)$ with an identity element $e \in S$. An element $a \in S$ is said to be invertible if there exists $b$ such that $a \ast b = b \ast a = e$. $b$ is then called an inverse of $a$.
 \end{definition}
 
 \begin{theorem} \label{thm-magma-inverse-unicity}
@@ -53,9 +60,9 @@
 
 \begin{proof}
     Let $b, c \in S$ be two inverses of $a$. Then we have
-    \begin{center}
-        $b = b \ast (a \ast c) = (b \ast a) \ast c = c$.
-    \end{center}
+    $$
+    b = b \ast (a \ast c) = (b \ast a) \ast c = c.
+    $$
 \end{proof}
 
 \section{Groups}

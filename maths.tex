@@ -24,28 +24,39 @@
 \end{definition}
 
 \begin{definition} \label{def-magma-associative}
-    A magma $(S, \ast)$ is said to be associative if $\forall a, b, c \in S, (a \ast b) \ast c = a \ast (b \ast c)$.
+    A magma $(S, \ast)$ is said to be associative if $\forall a, b, c \in S, \; (a \ast b) \ast c = a \ast (b \ast c)$.
 \end{definition}
 
 \begin{definition} \label{def-magma-commutative}
-    A magma $(S, \ast)$ is said to be commutative if $\forall a, b \in S, a \ast b = b \ast a$.
+    A magma $(S, \ast)$ is said to be commutative if $\forall a, b \in S, \; a \ast b = b \ast a$.
 \end{definition}
 
 \begin{definition} \label{def-magma-id-element}
-    An identity element of a given magma $(S, \ast)$ is an element $e \in S$, such that $\forall a \in S, e \ast a = a \ast e = a$.
+    An identity element of a given magma $(S, \ast)$ is an element $e \in S$, such that $\forall a \in S, \; e \ast a = a \ast e = a$.
 \end{definition}
 
-\begin{theorem} \label{def-magma-id-element-unicity}
+\begin{theorem} \label{thm-magma-id-element-unicity}
     If a magma $(S, \ast)$ has an identity element, then it is unique.
 \end{theorem}
 
 \begin{proof}
-    If $e, e' \in S$ are identity elements for $\ast$, then $e = e \ast e' = e'$.
+    If $e, e^{\prime} \in S$ are identity elements for $\ast$, then $e = e \ast e^{\prime} = e^{\prime}$.
 \end{proof}
 
 \begin{definition} \label{def-magma-invertible-element}
-    Given a magma $(S, \ast)$ with an identity element $e \in S$. An element $a \in S$ is said to be invertible if there exists $b$ such that $a \ast b = e$.
+    Given a magma $(S, \ast)$ with an identity element $e \in S$. An element $a \in S$ is said to be invertible if there exists $b$ such that $a \ast b = b \ast a = e$. $b$ is so called an inverse of $a$.
 \end{definition}
+
+\begin{theorem} \label{thm-magma-inverse-unicity}
+    If $(S, \ast)$ is an associative magma, then every invertible element $a \in S$ has a unique inverse, denoted by $a^{-1}$.
+\end{theorem}
+
+\begin{proof}
+    Let $b, c \in S$ be two inverses of $a$. Then we have
+    \begin{center}
+        $b = b \ast (a \ast c) = (b \ast a) \ast c = c$.
+    \end{center}
+\end{proof}
 
 \section{Groups}
 

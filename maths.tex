@@ -12,66 +12,119 @@
 \maketitle
 \tableofcontents
 
-\chapter{Groups}
-\section{Magmas and monoids}
+\chapter{Algebra}
+\section{Groups}
+\subsection{Magmas and monoids}
+\subsubsection{Magmas and properties}
 
 \begin{definition} \label{def-magma}
-    A magma is a pair $(S, \ast)$ with $S$ a set and 
+    A magma is a pair $(M, \ast)$ with $M$ a set and 
     $$
-    \ast \colon S \times S \to S
+        \ast \colon M \times M \to M
     $$
     an internal composition law.
 \end{definition}
 
 \begin{definition} \label{def-magma-associative}
-    A magma $(S, \ast)$ is said to be associative if $\forall a, b, c \in S, \; (a \ast b) \ast c = a \ast (b \ast c)$.
+    A magma $(M, \ast)$ is said to be associative if $\forall a, b, c \in M, \; (a \ast b) \ast c = a \ast (b \ast c)$.
 \end{definition}
 
 \begin{definition} \label{def-magma-commutative}
-    A magma $(S, \ast)$ is said to be commutative if $\forall a, b \in S, \; a \ast b = b \ast a$.
+    A magma $(M, \ast)$ is said to be commutative if $\forall a, b \in M, \; a \ast b = b \ast a$.
 \end{definition}
 
 \begin{definition} \label{def-magma-id-element}
-    An identity element of a given magma $(S, \ast)$ is an element $e \in S$, such that $\forall a \in S, \; e \ast a = a \ast e = a$.
+    An identity element of a given magma $(M, \ast)$ is an element $e \in M$, such that $\forall a \in M, \; e \ast a = a \ast e = a$.
 \end{definition}
 
 \begin{theorem} \label{thm-magma-id-element-uniqueness}
-    If a magma $(S, \ast)$ has an identity element, then it is unique.
+    If a magma $(M, \ast)$ has an identity element, then it is unique.
 \end{theorem}
 
 \begin{proof}
-    If $e, e^{\prime} \in S$ are identity elements for $\ast$, then $e = e \ast e^{\prime} = e^{\prime}$.
+    If $e, e^{\prime} \in M$ are identity elements for $\ast$, then $e = e \ast e^{\prime} = e^{\prime}$.
 \end{proof}
 
 \begin{definition} \label{def-magma-invertible-element}
-    Given a magma $(S, \ast)$ with an identity element $e \in S$. An element $a \in S$ is said to be invertible if there exists $b$ such that $a \ast b = b \ast a = e$. $b$ is then called an inverse of $a$.
+    Given a magma $(M, \ast)$ with an identity element $e \in M$. An element $a \in M$ is said to be invertible if there exists $b \in M$ such that $a \ast b = b \ast a = e$. $b$ is then called an inverse of $a$.
 \end{definition}
+
+\subsubsection{Products of magmas}
+
+\begin{definition} \label{def-magma-product}
+    Given two magmas $(M, \ast)$ and $(N, \bullet)$, we define a canonical structure of magma on the set $M \times N$, defined by the following internal composition law:
+    $$
+        \big((a, b), (a^{\prime}, b^{\prime}) \big) \mapsto (a \ast a^{\prime}, b \bullet b^{\prime})
+    $$
+\end{definition}
+
+\begin{proposition} \label{prop-magma-product-props}
+    Let $M$ and $N$ be two magmas.
+    \begin{enumerate}[label=(\roman*)]
+        \item If $M$ and $N$ are associative (resp. commutative), then $M \times N$ is associative (resp. commutative),
+        \item If $M$ and $N$ have identity elements, then $M \times N$ has an identity element.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Admitted.
+\end{proof}
+
+\begin{proposition} \label{prop-magma-product-reversibility}
+    Let $M$ and $N$ be two magmas with identity elements. If $a \in M$ and $b \in N$ are invertible, then $(a, b) \in M \times N$ is invertible.
+\end{proposition}
+
+\begin{proof}
+    Admitted.
+\end{proof}
+
+\begin{remark}
+    The previous construction can be extended to any product of magmas. The propositions \eqref{prop-magma-product-props} and \eqref{prop-magma-product-reversibility} then remain true.
+\end{remark}
+
+\subsubsection{Morphism of magmas}
+
+\begin{definition} \label{def-magma-morphism}
+    A morphism of magmas between $(M, \ast)$ and $(N, \bullet)$ is a map $f \colon M \to N$ such that
+    $$
+        \forall a, b \in M, \; f(a \ast b) = f(a) \bullet f(b)
+    $$
+\end{definition}
+
+\begin{proposition} \label{prop-magma-morphism-composition}
+    A composition of morphisms of magmas is a morphism of magmas.
+\end{proposition}
+
+\begin{proof}
+    Admitted.
+\end{proof}
+
+\subsubsection{Monoids and properties}
 
 \begin{definition} \label{def-monoid}
     A monoid is an associative magma with an identity element.
 \end{definition}
 
-\begin{theorem} \label{thm-magma-inverse-uniqueness}
-    If $(S, \ast)$ is a monoid, then every invertible element $a \in S$ has a unique inverse, denoted by $a^{-1}$.
+\begin{theorem} \label{thm-monoid-inverse-uniqueness}
+    If $(M, \ast)$ is a monoid, then every invertible element $a \in M$ has a unique inverse, denoted by $a^{-1}$.
 \end{theorem}
 
 \begin{proof}
-    Let $b, b^{\prime} \in S$ be two inverses of $a$. Then we have
+    Let $b, b^{\prime} \in M$ be two inverses of $a$. Then we have
     $$
-    b = b \ast (a \ast b^{\prime}) = (b \ast a) \ast b^{\prime} = b^{\prime}.
+        b = b \ast (a \ast b^{\prime}) = (b \ast a) \ast b^{\prime} = b^{\prime}.
     $$
 \end{proof}
 
-\begin{notation} \label{not-magma-exposant}
-    If $(S, \ast)$ is a monoid, then for all $a \in S$, we denote:
+\begin{notation} \label{not-monoid-exposant}
+    If $(M, \ast)$ is a monoid, then for all $a \in M$, we denote:
     $$
-    a^0 = e \quad \text{and} \quad a^n = \underbrace{a \ast \dots \ast a}_{n \text{ times}} \quad (\text{for } n \geq 1).
+        a^0 = e \quad \text{and} \quad a^n = \underbrace{a \ast \dots \ast a}_{n \text{ times}} \quad (\text{for } n \geq 1).
     $$
 \end{notation}
 
-
 \begin{proposition}
-    Given a monoid $(S, \ast)$, and $a, x, y \in S$,
+    Given a monoid $(M, \ast)$, and $a, x, y \in M$,
     \begin{enumerate}[label=(\roman*)]
         \item If $a \ast x = a \ast y$ and $a$ is invertible, then $x = y$,
         \item If $x$ is invertible, then $x^{-1}$ is invertible and $(x^{-1})^{-1} = x$.
@@ -82,17 +135,131 @@
 
 \begin{proof}
     \begin{enumerate}[label=(\roman*)]
-        \item $x = (a^{-1} \ast a) \ast x = a^{-1} \ast (a \ast x) = a^{-1} \ast (a \ast y) = (a^{-1} \ast a) \ast y = y$,
-        \item Direct consequence of the invertible element definition,
-        \item $(x \ast y) \ast (y^{-1} \ast x^{-1}) = x \ast y \ast y^{-1} \ast x^{-1} = e$ and similarly for the other way,
+        \item $x = (a^{-1} \ast a) \ast x = a^{-1} \ast (a \ast x) = a^{-1} \ast (a \ast y) = (a^{-1} \ast a) \ast y = y$.
+        \item Direct consequence of the invertible element definition.
+        \item $(x \ast y) \ast (y^{-1} \ast x^{-1}) = x \ast y \ast y^{-1} \ast x^{-1} = e$, and similarly for the other way.
         \item It suffices to combine the two preceding properties in a proof by induction.
     \end{enumerate}
 \end{proof}
 
-\section{Groups}
+\begin{proposition} \label{prop-monoid-product}
+    Any product of monoids is a monoid.
+\end{proposition}
+
+\begin{proof}
+    It is induced by \eqref{prop-magma-product-props}.
+\end{proof}
+
+\begin{definition} \label{def-monoid-morphism}
+    A morphism of monoids is a morphism between underlying magmas, such that it preserves the identity element.
+\end{definition}
+
+\subsection{Groups}
+\subsubsection{Groups and subgroups}
 
 \begin{definition} \label{def-group}
     A group is a monoid such that every element is invertible.
 \end{definition}
+
+\begin{proposition}
+    Any product of groups is a group.
+\end{proposition}
+
+\begin{proof}
+    It is induced by \eqref{prop-monoid-product} and \eqref{prop-magma-product-reversibility}.
+\end{proof}
+
+\begin{definition} \label{def-subgroup}
+    Let $(G, \ast)$ be a group. A subset $H \subseteq G$ is said to be a \emph{subgroup} of $G$ if:
+    \begin{enumerate}[label=(\roman*)]
+        \item The identity element $e \in H$,
+        \item $H$ is closed under the composition law, i.e., $\forall x, y \in H, \; x \ast y \in H$,
+        \item $H$ is closed under taking inverses, i.e., $\forall x \in H, \; x^{-1} \in H$.
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition} \label{prop-subgroup-criterion}
+    Let $(G, \ast)$ be a group. A non-empty subset $H \subseteq G$ is a subgroup of $G$ if and only if:
+    $$
+        \forall x, y \in H, \quad x \ast y^{-1} \in H.
+    $$
+\end{proposition}
+
+\begin{proof}
+    Suppose $H$ is a subgroup of $G$. Let $x, y \in H$. By condition (iii) of Definition~\ref{def-subgroup}, $y^{-1} \in H$. Then, by condition (ii), $x \ast y^{-1} \in H$.\\
+    Conversely, suppose $H \neq \emptyset$ and satisfies the given criterion. Since $H$ is non-empty, there exists some $x \in H$. Applying the criterion to $x$ and $x$ yields $x \ast x^{-1} = e \in H$, which satisfies condition (i). Now, for any $y \in H$, applying the criterion to $e$ and $y$ gives $e \ast y^{-1} = y^{-1} \in H$, satisfying condition (iii). Finally, for any $x, y \in H$, we know $y^{-1} \in H$, so applying the criterion to $x$ and $y^{-1}$ gives $x \ast (y^{-1})^{-1} = x \ast y \in H$, satisfying condition (ii).
+\end{proof}
+
+\begin{proposition}
+    Given a group $G$, any intersection of subgroups of $G$ is a subgroup of $G$.
+\end{proposition}
+
+\begin{proof}
+    Admitted.
+\end{proof}
+
+\subsubsection{Morphism of groups}
+
+\begin{definition} \label{def-group-morphism}
+    A morphism of groups is a morphism of underlying magmas.
+\end{definition}
+
+\begin{proposition} \label{prop-group-morphism-reversibility}
+    Let $G, G^{\prime}$ be two groups and $f \colon G \to G^{\prime}$ be a morphism of groups. Then $f(e_{G}) = e_{G^{\prime}}$ and for all $x \in G, \; f(x^{-1}) = f(x)^{-1}$.
+\end{proposition}
+
+\begin{proof}
+    Admitted.
+\end{proof}
+
+\begin{proposition} \label{prop-group-morphism-composition}
+    A composition of morphisms of groups is a morphism of groups.
+\end{proposition}
+
+\begin{proof}
+    Induced by \eqref{prop-magma-morphism-composition}.
+\end{proof}
+
+\begin{theorem} \label{thm-group-morphism-image}
+    Let $G, G^{\prime}$ be two groups and $f \colon G \to G^{\prime}$ be a morphism of groups.
+    \begin{enumerate}[label=(\roman*)]
+        \item If $H$ is a subgroup of $G$, then $f(H)$ is a subgroup of $G^{\prime}$,
+        \item If $H^{\prime}$ is a subgroup of $G^{\prime}$, then $f^{-1}(H^{\prime})$ is a subgroup of $G$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Admitted.
+\end{proof}
+
+\begin{definition} \label{def-group-morphism-kernel}
+    The kernel of a morphism of groups $f \colon G \to G^{\prime}$ is defined by
+    $$
+        \text{Ker}(f) = \lbrace a \in G \mid f(a) = e_{G^{\prime}} \rbrace
+    $$
+\end{definition}
+
+\begin{proposition} \label{prop-group-morphism-kernel-subgroup}
+    The kernel of a morphism of groups $f \colon G \to G^{\prime}$ is a subgroup of $G$.
+\end{proposition}
+
+\begin{proof}
+    Induced by \eqref{thm-group-morphism-image}-(i)
+\end{proof}
+
+\begin{definition} \label{def-group-morphism-image}
+    The image of a morphism of groups $f \colon G \to G^{\prime}$ is defined by
+    $$
+        \text{Im}(f) = \lbrace b \in G^{\prime} \mid \exists a \in G, \; f(a) = b \rbrace
+    $$
+\end{definition}
+
+\begin{proposition} \label{prop-group-morphism-image-subgroup}
+    The image of a morphism of groups $f \colon G \to G^{\prime}$ is a subgroup of $G^{\prime}$.
+\end{proposition}
+
+\begin{proof}
+    Induced by \eqref{thm-group-morphism-image}-(ii)
+\end{proof}
 
 \end{document}

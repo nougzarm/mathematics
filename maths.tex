@@ -204,6 +204,10 @@
     A morphism of groups is a morphism of underlying magmas.
 \end{definition}
 
+\begin{definition} \label{def-group-morphism-domain}
+    Let $f \colon G \to G^{\prime}$ be a morphism of groups. We say that $G$ is the domain of $f$, and $G^{\prime}$ is the codomain of $f$.
+\end{definition}
+
 \begin{proposition} \label{prop-group-morphism-reversibility}
     Let $G, G^{\prime}$ be two groups and $f \colon G \to G^{\prime}$ be a morphism of groups. Then $f(e_{G}) = e_{G^{\prime}}$ and for all $x \in G, \; f(x^{-1}) = f(x)^{-1}$.
 \end{proposition}
@@ -244,7 +248,15 @@
 \end{proposition}
 
 \begin{proof}
-    Induced by \eqref{thm-group-morphism-image}-(i)
+    Induced by \eqref{thm-group-morphism-image}-(ii).
+\end{proof}
+
+\begin{proposition} \label{prop-group-morphism-inj-criterion}
+    A morphism of groups $f \colon G \to G^{\prime}$ is injective if and only if its kernel is the trivial subgroup $\lbrace e_{G} \rbrace$.
+\end{proposition}
+
+\begin{proof}
+    The if condition: Let $x, x^{\prime} \in G$ be such that $f(x) = f(x^{\prime})$, which is equivalent to $f(x) f(x^{\prime})^{-1} = e_{G^{\prime}}$. However, $f(x) f(x^{\prime})^{-1} = f(x) f((x^{\prime})^{-1}) = f(x (x^{\prime})^{-1})$. Which implies, by hypothesis $x (x^{\prime})^{-1} = e_{G}$. So $x = x^{\prime}$. The reverse is obvious.
 \end{proof}
 
 \begin{definition} \label{def-group-morphism-image}
@@ -259,7 +271,50 @@
 \end{proposition}
 
 \begin{proof}
-    Induced by \eqref{thm-group-morphism-image}-(ii)
+    Induced by \eqref{thm-group-morphism-image}-(i).
+\end{proof}
+
+\subsubsection{Isomorphism of groups}
+
+\begin{definition} \label{def-group-isomorphism}
+    An isomorphism of groups is a bijective morphism of groups.
+\end{definition}
+
+\begin{notation}
+    If $f \colon G \to G^{\prime}$ is an isomorphism, then we say that $G$ is isomorphic to $G^{\prime}$. If $G = G^{\prime}$, we say that $f$ is an automorphism.
+\end{notation}
+
+\begin{theorem} \label{thm-group-isomorphism-composition}
+    The composition of two isomorphisms of groups is an isomorphism of groups.
+\end{theorem}
+
+\begin{proof}
+    Obvious.
+\end{proof}
+
+\begin{theorem} \label{thm-group-isomorphism-inverse}
+    If $f$ is an isomorphism of groups, then the inverse $f^{-1}$ is a morphism of groups. Moreover, it is an isomorphism of groups.
+\end{theorem}
+
+\begin{proof}
+    Let $f \colon G \to G^{\prime}$ be an isomorphism of groups and $y, y^{\prime} \in G^{\prime}$. 
+    Then
+    $$
+    \begin{aligned}
+        f^{-1}(y y^{\prime}) 
+            &= f^{-1}\Big( f\big( f^{-1}(y) \big) f\big( f^{-1}(y^{\prime}) \big) \Big) \\
+            &= f^{-1}\Big( f\big( f^{-1}(y) f^{-1}(y^{\prime}) \big) \Big) \\
+            &= f^{-1}(y) f^{-1}(y^{\prime})
+    \end{aligned}
+    $$
+\end{proof}
+
+\begin{proposition}
+    The relation "is isomorphic to" is an equivalence relation on the class of groups. Its equivalence classes are called isomorphism classes.
+\end{proposition}
+
+\begin{proof}
+    Induced by \eqref{thm-group-isomorphism-inverse} and \eqref{thm-group-isomorphism-composition}.
 \end{proof}
 
 \end{document}

@@ -14,11 +14,11 @@
 
 \chapter{Algebra}
 \section{Groups}
-\subsection{Magmas and monoids}
+\subsection{Introduction to groups}
 \subsubsection{Magmas and properties}
 
 \begin{definition} \label{def-magma}
-    A magma is a pair $(M, \ast)$ with $M$ a set and 
+    A \emph{magma} is a pair $(M, \ast)$ with $M$ a set and 
     $$
         \ast \colon M \times M \to M
     $$
@@ -26,15 +26,15 @@
 \end{definition}
 
 \begin{definition} \label{def-magma-associative}
-    A magma $(M, \ast)$ is said to be associative if $\forall a, b, c \in M, \; (a \ast b) \ast c = a \ast (b \ast c)$.
+    A magma $(M, \ast)$ is said to be \emph{associative} if $\forall a, b, c \in M, \; (a \ast b) \ast c = a \ast (b \ast c)$.
 \end{definition}
 
 \begin{definition} \label{def-magma-commutative}
-    A magma $(M, \ast)$ is said to be commutative if $\forall a, b \in M, \; a \ast b = b \ast a$.
+    A magma $(M, \ast)$ is said to be \emph{commutative} if $\forall a, b \in M, \; a \ast b = b \ast a$.
 \end{definition}
 
 \begin{definition} \label{def-magma-id-element}
-    An identity element of a given magma $(M, \ast)$ is an element $e \in M$, such that $\forall a \in M, \; e \ast a = a \ast e = a$.
+    An \emph{identity element} of a given magma $(M, \ast)$ is an element $e \in M$, such that $\forall a \in M, \; e \ast a = a \ast e = a$.
 \end{definition}
 
 \begin{theorem} \label{thm-magma-id-element-uniqueness}
@@ -46,7 +46,7 @@
 \end{proof}
 
 \begin{definition} \label{def-magma-invertible-element}
-    Given a magma $(M, \ast)$ with an identity element $e \in M$. An element $a \in M$ is said to be invertible if there exists $b \in M$ such that $a \ast b = b \ast a = e$. $b$ is then called an inverse of $a$.
+    Given a magma $(M, \ast)$ with an identity element $e \in M$. An element $a \in M$ is said to be \emph{invertible} if there exists $b \in M$ such that $a \ast b = b \ast a = e$. $b$ is then called an inverse of $a$.
 \end{definition}
 
 \subsubsection{Products of magmas}
@@ -85,7 +85,7 @@
 \subsubsection{Morphism of magmas}
 
 \begin{definition} \label{def-magma-morphism}
-    A morphism of magmas between $(M, \ast)$ and $(N, \bullet)$ is a map $f \colon M \to N$ such that
+    A \emph{morphism of magmas} between $(M, \ast)$ and $(N, \bullet)$ is a map $f \colon M \to N$ such that
     $$
         \forall a, b \in M, \; f(a \ast b) = f(a) \bullet f(b)
     $$
@@ -102,7 +102,7 @@
 \subsubsection{Monoids and properties}
 
 \begin{definition} \label{def-monoid}
-    A monoid is an associative magma with an identity element.
+    A \emph{monoid} is an associative magma with an identity element.
 \end{definition}
 
 \begin{theorem} \label{thm-monoid-inverse-uniqueness}
@@ -151,23 +151,33 @@
 \end{proof}
 
 \begin{definition} \label{def-monoid-morphism}
-    A morphism of monoids is a morphism between underlying magmas, such that it preserves the identity element.
+    A \emph{morphism of monoids} is a morphism between underlying magmas, such that it preserves the identity element.
 \end{definition}
 
-\subsection{Groups}
-\subsubsection{Groups and subgroups}
+\subsubsection{Groups}
 
 \begin{definition} \label{def-group}
-    A group is a monoid such that every element is invertible.
+    A \emph{group} is a monoid such that every element is invertible.
 \end{definition}
 
-\begin{proposition}
+\begin{definition} \label{def-group-order}
+    The order of a group $G$, denoted by $\lvert G \rvert$ or $\# G$, is the cardinal of its underlying set. 
+\end{definition}
+
+\begin{definition} \label{def-group-commutative}
+    A group is \emph{commutative} or \emph{abelian} if the underlying magma is commutative.
+\end{definition}
+
+\begin{proposition} \label{prop-group-product}
     Any product of groups is a group.
 \end{proposition}
 
 \begin{proof}
     It is induced by \eqref{prop-monoid-product} and \eqref{prop-magma-product-reversibility}.
 \end{proof}
+
+\subsection{Subgroups, morphism of groups}
+\subsubsection{Subgroups}
 
 \begin{definition} \label{def-subgroup}
     Let $(G, \ast)$ be a group. A subset $H \subseteq G$ is said to be a \emph{subgroup} of $G$ if:
@@ -190,7 +200,7 @@
     Conversely, suppose $H \neq \emptyset$ and satisfies the given criterion. Since $H$ is non-empty, there exists some $x \in H$. Applying the criterion to $x$ and $x$ yields $x \ast x^{-1} = e \in H$, which satisfies condition (i). Now, for any $y \in H$, applying the criterion to $e$ and $y$ gives $e \ast y^{-1} = y^{-1} \in H$, satisfying condition (iii). Finally, for any $x, y \in H$, we know $y^{-1} \in H$, so applying the criterion to $x$ and $y^{-1}$ gives $x \ast (y^{-1})^{-1} = x \ast y \in H$, satisfying condition (ii).
 \end{proof}
 
-\begin{proposition}
+\begin{proposition} \label{prop-group-subgroups-intersection}
     Given a group $G$, any intersection of subgroups of $G$ is a subgroup of $G$.
 \end{proposition}
 
@@ -201,11 +211,11 @@
 \subsubsection{Morphism of groups}
 
 \begin{definition} \label{def-group-morphism}
-    A morphism of groups is a morphism of underlying magmas.
+    A \emph{morphism of groups} is a morphism of underlying magmas.
 \end{definition}
 
 \begin{definition} \label{def-group-morphism-domain}
-    Let $f \colon G \to G^{\prime}$ be a morphism of groups. We say that $G$ is the domain of $f$, and $G^{\prime}$ is the codomain of $f$.
+    Let $f \colon G \to G^{\prime}$ be a morphism of groups. We say that $G$ is the \emph{domain} of $f$, and $G^{\prime}$ is the \emph{codomain} of $f$.
 \end{definition}
 
 \begin{proposition} \label{prop-group-morphism-reversibility}
@@ -237,7 +247,7 @@
 \end{proof}
 
 \begin{definition} \label{def-group-morphism-kernel}
-    The kernel of a morphism of groups $f \colon G \to G^{\prime}$ is defined by
+    The \emph{kernel} of a morphism of groups $f \colon G \to G^{\prime}$ is defined by
     $$
         \text{Ker}(f) = \lbrace a \in G \mid f(a) = e_{G^{\prime}} \rbrace
     $$
@@ -260,7 +270,7 @@
 \end{proof}
 
 \begin{definition} \label{def-group-morphism-image}
-    The image of a morphism of groups $f \colon G \to G^{\prime}$ is defined by
+    The \emph{image} of a morphism of groups $f \colon G \to G^{\prime}$ is defined by
     $$
         \text{Im}(f) = \lbrace b \in G^{\prime} \mid \exists a \in G, \; f(a) = b \rbrace
     $$
@@ -277,7 +287,7 @@
 \subsubsection{Isomorphism of groups}
 
 \begin{definition} \label{def-group-isomorphism}
-    An isomorphism of groups is a bijective morphism of groups.
+    An \emph{isomorphism of groups} is a bijective morphism of groups.
 \end{definition}
 
 \begin{notation}
@@ -316,5 +326,49 @@
 \begin{proof}
     Induced by \eqref{thm-group-isomorphism-inverse} and \eqref{thm-group-isomorphism-composition}.
 \end{proof}
+
+\subsection{Normal subgroup and quotient}
+
+\begin{definition} \label{def-group-normal-subgroup}
+    Let $G$ be a group. A subgroup $H$ of $G$ is said to be a normal subgroup if :
+    $$
+        \forall h \in H, \forall g \in G, \; g h g^{-1} \in H
+    $$
+\end{definition}
+
+\begin{remark}
+    If $G$ is an abelian group, then any subgroup of $G$ is a normal subgroup.
+\end{remark}
+
+\begin{definition} \label{def-group-canoncial-surjection}
+    Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh, \; h \in H \rbrace$, called right class of $g$ modulo $H$. The right classes modulo $H$ constitute a partition of $G$ ; The set of right classes modulo $H$ is called right quotient of $G$ by $H$, denoted by $G / H$ ; the map
+    $$
+        \begin{aligned}
+            \pi \colon G &\longrightarrow G / H \\
+            g &\longmapsto gH
+        \end{aligned}
+    $$
+    is called canonical surjection.
+\end{definition}
+
+\begin{definition} \label{def-group-subgroup-indice}
+    Let $G$ be a group and $H$ a subgroup of $G$. The indice of $H$ in $G$, denoted by $[G : H]$, is the cardinal of the quotient $G / H$
+\end{definition}
+
+\begin{proposition}
+    Let $G$ be a group and $H$ a subgroup of $G$. Then we have
+    $$
+        \lvert G \rvert = [G : H] \lvert H \rvert
+    $$
+\end{proposition}
+
+\begin{proof}
+    Admitted.
+\end{proof}
+
+\begin{remark}
+    If the order of $G$ is finite, then the order of $H$ divides the order of $G$.
+\end{remark}
+
 
 \end{document}

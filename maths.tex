@@ -161,7 +161,7 @@
 \end{definition}
 
 \begin{definition} \label{def-group-order}
-    The order of a group $G$, denoted by $\lvert G \rvert$ or $\# G$, is the cardinal of its underlying set. 
+    The order of a group $G$, denoted by $\lvert G \rvert$ or $\# G$, is the cardinality of its underlying set. 
 \end{definition}
 
 \begin{definition} \label{def-group-commutative}
@@ -330,7 +330,7 @@
 \subsection{Normal subgroup and quotient}
 
 \begin{definition} \label{def-group-normal-subgroup}
-    Let $G$ be a group. A subgroup $H$ of $G$ is said to be a normal subgroup if :
+    Let $G$ be a group. A subgroup $H$ of $G$ is said to be a \emph{normal} subgroup if:
     $$
         \forall h \in H, \forall g \in G, \; g h g^{-1} \in H
     $$
@@ -341,18 +341,18 @@
 \end{remark}
 
 \begin{definition} \label{def-group-canoncial-surjection}
-    Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh, \; h \in H \rbrace$, called right class of $g$ modulo $H$. The right classes modulo $H$ constitute a partition of $G$ ; The set of right classes modulo $H$ is called right quotient of $G$ by $H$, denoted by $G / H$ ; the map
+    Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh, \; h \in H \rbrace$, called \emph{left coset} of $g$ modulo $H$. The left cosets constitute a partition of $G$; The set of left cosets modulo $H$ is called the \emph{left quotient} of $G$ by $H$, denoted by $G / H$; the map
     $$
         \begin{aligned}
             \pi \colon G &\longrightarrow G / H \\
             g &\longmapsto gH
         \end{aligned}
     $$
-    is called canonical surjection.
+    is called \emph{canonical surjection}.
 \end{definition}
 
-\begin{definition} \label{def-group-subgroup-indice}
-    Let $G$ be a group and $H$ a subgroup of $G$. The indice of $H$ in $G$, denoted by $[G : H]$, is the cardinal of the quotient $G / H$
+\begin{definition} \label{def-group-subgroup-index}
+    Let $G$ be a group and $H$ a subgroup of $G$. The \emph{index} of $H$ in $G$, denoted by $[G : H]$, is the cardinality of the quotient $G / H$.
 \end{definition}
 
 \begin{proposition}
@@ -363,12 +363,32 @@
 \end{proposition}
 
 \begin{proof}
-    Admitted.
+    Let $X$ be a subset of $G$ such that the restriction of the canonical surjection $\pi \colon G \to G / H$ to $X$ is bijective. Then we have $[G : H] = \text{card}(X)$ ($X$ is a system of representatives of left cosets of $G$ by $H$).
+    Let the map
+    $$
+        \begin{aligned}
+            f \colon X \times H &\longrightarrow G \\
+            (x, h) &\longmapsto xh
+        \end{aligned}
+    $$
+    which is a bijection. Hence, $\lvert G \rvert = \text{card} (X \times H) = [G : H] \lvert H \rvert$.
 \end{proof}
 
-\begin{remark}
+\begin{remark} \label{rem-group-subgroup-order-divisibility}
     If the order of $G$ is finite, then the order of $H$ divides the order of $G$.
 \end{remark}
 
+\begin{proposition} \label{prop-group-quotient}
+    Let $G$ be a group and $H$ a subgroup of $G$. The following conditions are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $H$ is a normal subgroup,
+        \item There exists a group structure on the quotient $G / H$, such that the canonical surjection $G \to G / H$ is a morphism of groups,
+        \item There exists a group $G^{\prime}$ and a morphism of groups $f \colon G \to G^{\prime}$ such that $H$ is the kernel of $f$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Admitted.
+\end{proof}
 
 \end{document}

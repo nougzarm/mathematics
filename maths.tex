@@ -49,12 +49,28 @@
     Given a magma $(M, \ast)$ with an identity element $e \in M$. An element $a \in M$ is said to be \emph{invertible} if there exists $b \in M$ such that $a \ast b = b \ast a = e$. $b$ is then called an inverse of $a$.
 \end{definition}
 
+\subsubsection{Submagmas}
+\begin{definition} \label{def-magma-submagma}
+    Let $(M, \ast)$ be a magma. A subset $N \subset M$ is a \emph{submagma} of $(M, \ast)$ if the operation $\ast$ is stable under $N$:
+    $$
+        \forall a, b \in N, \; a \ast b \in N.
+    $$
+\end{definition}
+
+\begin{remark} \label{rem-magma-canoncial-submagma}
+    The submagma $N$ induces the canonical magma $(N, \ast_{\vert N \times N})$.
+\end{remark}
+
+\begin{remark} \label{rem-magma-submagmas-interesection}
+    Any intersection of submagmas of a magma $(M, \ast)$ is a submagma of $(M, \ast)$.
+\end{remark}
+
 \subsubsection{Products of magmas}
 
 \begin{definition} \label{def-magma-product}
-    Given two magmas $(M, \ast)$ and $(N, \bullet)$, we define a canonical structure of magma on the set $M \times N$, defined by the following internal composition law:
+    Given two magmas $(M, \ast)$ and $(N, \cdot)$, we define a canonical structure of magma on the set $M \times N$, defined by the following internal composition law:
     $$
-        \big((a, b), (a^{\prime}, b^{\prime}) \big) \mapsto (a \ast a^{\prime}, b \bullet b^{\prime})
+        \big((a, b), (a^{\prime}, b^{\prime}) \big) \mapsto (a \ast a^{\prime}, b \cdot b^{\prime})
     $$
 \end{definition}
 
@@ -85,9 +101,9 @@
 \subsubsection{Morphism of magmas}
 
 \begin{definition} \label{def-magma-morphism}
-    A \emph{morphism of magmas} between $(M, \ast)$ and $(N, \bullet)$ is a map $f \colon M \to N$ such that
+    A \emph{morphism of magmas} between $(M, \ast)$ and $(N, \cdot)$ is a map $f \colon M \to N$ such that
     $$
-        \forall a, b \in M, \; f(a \ast b) = f(a) \bullet f(b)
+        \forall a, b \in M, \; f(a \ast b) = f(a) \cdot f(b)
     $$
 \end{definition}
 
@@ -141,6 +157,20 @@
         \item It suffices to combine the two preceding properties in a proof by induction.
     \end{enumerate}
 \end{proof}
+
+\subsubsection{Submonoid, product and morphism}
+
+\begin{definition} \label{def-monoid-submonoid}
+    Let $(M, \ast)$ be a monoid. A subset $N \subset M$ is a \emph{submonoid} of $(M, \ast)$ if it is its submagma and it containing the identity element.
+\end{definition}
+
+\begin{remark} \label{rem-monoid-canoncial-monoid}
+    The monoid $N$ induces the canonical monoid $(N, \ast_{\vert N \times N})$.
+\end{remark}
+
+\begin{remark} \label{rem-monoid-submonoids-interesection}
+    Any intersection of monoids of a monoid $(M, \ast)$ is a submonoid of $(M, \ast)$.
+\end{remark}
 
 \begin{proposition} \label{prop-monoid-product}
     Any product of monoids is a monoid.
@@ -347,7 +377,7 @@
 \end{remark}
 
 \begin{definition} \label{def-group-canoncial-surjection}
-    Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh, \; h \in H \rbrace$, called \emph{left coset} of $g$ modulo $H$. The left cosets constitute a partition of $G$; The set of left cosets modulo $H$ is called the \emph{left quotient} of $G$ by $H$, denoted by $G / H$; the map
+    Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh \mid h \in H \rbrace$, called \emph{left coset} of $g$ modulo $H$. The left cosets constitute a partition of $G$; The set of left cosets modulo $H$ is called the \emph{left quotient} of $G$ by $H$, denoted by $G / H$; the map
     $$
         \begin{aligned}
             \pi \colon G &\longrightarrow G / H \\
@@ -396,5 +426,61 @@
 \begin{proof}
     Admitted.
 \end{proof}
+
+\section{Rings}
+\subsection{Generalities}
+\subsubsection{Rings and subrings}
+
+\begin{definition} \label{def-ring}
+    A \emph{ring} is a triplet $(A, +, \cdot)$ such that $(A, +)$ is an abelian group, $(A, \cdot)$ is a monoid, and the operation $\cdot$ is distributive over $+$:
+    $$
+        \forall a, b, c \in A, \quad a \cdot (b + c) = a \cdot b + a \cdot c \quad \text{and} \quad (b + c) \cdot a = b \cdot a + c \cdot a
+    $$
+\end{definition}
+
+\begin{notation} \label{not-ring-identities}
+    The identity elements are denoted by: $0$ for $(A, +)$ and $1$ for $(A, \cdot)$.
+\end{notation}
+
+\begin{notation} \label{not-ring}
+    Most often, a ring $(A, +, \cdot)$ is simply denoted by $A$.
+\end{notation}
+
+\begin{remark}
+    Let $A$ be a ring. Then for all $a \in A$:
+    $$
+        0 \cdot a = a \cdot 0 = 0 \quad \text{and} \quad (-1) \cdot a = -a = a \cdot (-1)
+    $$
+\end{remark}
+
+\begin{remark} \label{rem-ring-trivial-ring}
+    In a ring $A$, we have $0 = 1$ if, and only if, $A = \lbrace 0 \rbrace$.
+\end{remark}
+
+\begin{definition} \label{def-ring-invertible}
+    An element of a ring $A$ is \emph{invertible} if it is invertible in $(A, \cdot)$. We denote by $A^{\ast}$ the set of invertible elements of $A$.
+\end{definition}
+
+\begin{definition} \label{def-ring-field}
+    Let $A$ be a ring. We say that $A$ is a \emph{field} if $A^{\ast} = A \setminus \lbrace 0 \rbrace$.
+\end{definition}
+
+\begin{definition} \label{def-ring-subring}
+    Let $A$ be a ring. A subset $B \subset A$ is a \emph{subring} of $A$ if it is a subgroup of $(A, +)$ and submonoid of $(A, \cdot)$.
+\end{definition}
+
+\begin{remark}
+    A subring $B \subset A$ induces the canonical ring $(B, +_{\vert B \times B}, \cdot_{\vert B \times B})$.
+\end{remark}
+
+\begin{proposition} \label{prop-ring-generated}
+    Let $A$ be a ring. The intersection of any family of subrings of $A$ is also a subring of $A$. In particular, if $X$ is a subset of $A$, the intersection of subrings of $A$ containing $X$ is the smallest subring of $A$ containing $X$, called the \emph{subring} of $A$ \emph{generated} by $X$.
+\end{proposition}
+
+\subsubsection{Morphism of rings}
+
+\begin{definition} \label{def-ring-morphism}
+    Let $A$ and $B$ be two rings. A map $f \colon A \to B$ is a \emph{morphism of rings} if it is a group morphism from $(A, +)$ to $(B, +)$ and a monoid morphism from $(A, \cdot)$ to $(B, \cdot)$.
+\end{definition}
 
 \end{document}

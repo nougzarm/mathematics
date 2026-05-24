@@ -164,13 +164,17 @@
     Let $(M, \ast)$ be a monoid. A subset $N \subset M$ is a \emph{submonoid} of $(M, \ast)$ if it is its submagma and it containing the identity element.
 \end{definition}
 
-\begin{remark} \label{rem-monoid-canoncial-monoid}
-    The monoid $N$ induces the canonical monoid $(N, \ast_{\vert N \times N})$.
+\begin{remark} \label{rem-monoid-canoncial-submonoid}
+    The submonoid $N$ induces the canonical monoid $(N, \ast_{\vert N \times N})$.
 \end{remark}
 
 \begin{remark} \label{rem-monoid-submonoids-interesection}
     Any intersection of monoids of a monoid $(M, \ast)$ is a submonoid of $(M, \ast)$.
 \end{remark}
+
+\begin{proof}
+    Obvious by \eqref{rem-magma-submagmas-interesection} and the definition \eqref{def-monoid-submonoid}
+\end{proof}
 
 \begin{proposition} \label{prop-monoid-product}
     Any product of monoids is a monoid.
@@ -210,13 +214,12 @@
 \subsubsection{Subgroups}
 
 \begin{definition} \label{def-subgroup}
-    Let $(G, \ast)$ be a group. A subset $H \subseteq G$ is said to be a \emph{subgroup} of $G$ if:
-    \begin{enumerate}[label=(\roman*)]
-        \item The identity element $e \in H$,
-        \item $H$ is closed under the composition law, i.e., $\forall x, y \in H, \; x \ast y \in H$,
-        \item $H$ is closed under taking inverses, i.e., $\forall x \in H, \; x^{-1} \in H$.
-    \end{enumerate}
+    Let $(G, \ast)$ be a group. A subset $H \subseteq G$ is said to be a \emph{subgroup} of $G$ if it is a submonoid and is stable by inversion: $\forall x \in H, \; x^{-1} \in H$.
 \end{definition}
+
+\begin{remark} \label{rem-group-canoncial-subgroup}
+    The subgroup $H$ induces the canonical group $(H, \ast_{\vert H \times H})$.
+\end{remark}
 
 \begin{proposition} \label{prop-subgroup-criterion}
     Let $(G, \ast)$ be a group. A non-empty subset $H \subseteq G$ is a subgroup of $G$ if and only if:
@@ -226,8 +229,8 @@
 \end{proposition}
 
 \begin{proof}
-    Suppose $H$ is a subgroup of $G$. Let $x, y \in H$. By condition (iii) of Definition~\ref{def-subgroup}, $y^{-1} \in H$. Then, by condition (ii), $x \ast y^{-1} \in H$.\\
-    Conversely, suppose $H \neq \emptyset$ and satisfies the given criterion. Since $H$ is non-empty, there exists some $x \in H$. Applying the criterion to $x$ and $x$ yields $x \ast x^{-1} = e \in H$, which satisfies condition (i). Now, for any $y \in H$, applying the criterion to $e$ and $y$ gives $e \ast y^{-1} = y^{-1} \in H$, satisfying condition (iii). Finally, for any $x, y \in H$, we know $y^{-1} \in H$, so applying the criterion to $x$ and $y^{-1}$ gives $x \ast (y^{-1})^{-1} = x \ast y \in H$, satisfying condition (ii).
+    The direct way is a consequence of the definition of subgroups.\\
+    Conversely, suppose $H \neq \emptyset$ and satisfies the given criterion. Since $H$ is non-empty, there exists some $x \in H$. Applying the criterion to $x$ and $x$ yields $x \ast x^{-1} = e \in H$. Now, for any $y \in H$, applying the criterion to $e$ and $y$ gives $e \ast y^{-1} = y^{-1} \in H$. Finally, for any $x, y \in H$, we know $y^{-1} \in H$, so applying the criterion to $x$ and $y^{-1}$ gives $x \ast (y^{-1})^{-1} = x \ast y \in H$.
 \end{proof}
 
 \begin{proposition} \label{prop-group-subgroups-intersection}
@@ -235,7 +238,7 @@
 \end{proposition}
 
 \begin{proof}
-    Admitted.
+    By \eqref{rem-monoid-submonoids-interesection} and the fact that stability under inversion is preserved after intersection.
 \end{proof}
 
 \subsubsection{Morphism of groups}
@@ -356,7 +359,7 @@
 \end{proof}
 
 \begin{proposition}
-    The relation "is isomorphic to" is an equivalence relation on the class of groups. Its equivalence classes are called isomorphism classes.
+    The relation "is isomorphic to" is an equivalence relation on the class of groups. Its equivalence classes are called \emph{isomorphism classes}.
 \end{proposition}
 
 \begin{proof}
@@ -377,14 +380,14 @@
 \end{remark}
 
 \begin{definition} \label{def-group-canoncial-surjection}
-    Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh \mid h \in H \rbrace$, called \emph{left coset} of $g$ modulo $H$. The left cosets constitute a partition of $G$; The set of left cosets modulo $H$ is called the \emph{left quotient} of $G$ by $H$, denoted by $G / H$; the map
+    Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh \mid h \in H \rbrace$, called the \emph{left coset} of $g$ modulo $H$. The left cosets constitute a partition of $G$; The set of left cosets modulo $H$ is called the \emph{left quotient} of $G$ by $H$, denoted by $G / H$; the map
     $$
         \begin{aligned}
             \pi \colon G &\longrightarrow G / H \\
             g &\longmapsto gH
         \end{aligned}
     $$
-    is called \emph{canonical surjection}.
+    is called the \emph{canonical surjection}.
 \end{definition}
 
 \begin{definition} \label{def-group-subgroup-index}

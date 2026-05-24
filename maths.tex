@@ -98,21 +98,55 @@
     The previous construction can be extended to any product of magmas. The propositions \eqref{prop-magma-product-props} and \eqref{prop-magma-product-reversibility} then remain true.
 \end{remark}
 
-\subsubsection{Morphism of magmas}
+\subsubsection{Magma morphisms}
 
 \begin{definition} \label{def-magma-morphism}
-    A \emph{morphism of magmas} between $(M, \ast)$ and $(N, \cdot)$ is a map $f \colon M \to N$ such that
+    A \emph{magma morphism} between $(M, \ast)$ and $(N, \cdot)$ is a map $f \colon M \to N$ such that:
     $$
         \forall a, b \in M, \; f(a \ast b) = f(a) \cdot f(b)
     $$
 \end{definition}
 
 \begin{proposition} \label{prop-magma-morphism-composition}
-    A composition of morphisms of magmas is a morphism of magmas.
+    A composition of magma morphisms is a magma morphism.
 \end{proposition}
 
 \begin{proof}
     Admitted.
+\end{proof}
+
+\begin{theorem} \label{thm-magma-morphism-image}
+    Let $f \colon (M, \ast) \to (M^{\prime}, \cdot)$ be a magma morphism, then:
+    \begin{enumerate}[label=(\roman*)]
+        \item If $N$ is a submagma of $M$, then $f(N)$ is a submagma of $M^{\prime}$,
+        \item If $N^{\prime}$ is a submagma of $M^{\prime}$, then $f^{-1}(N^{\prime})$ is a submagma of $M$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Firstly, for all $a, b \in N$, we have: $f(a) \cdot f(b) = f(a \ast b) \in f(N)$. Secondly, for all $a, b \in f^{-1}(N^{\prime})$, we have: $f(a \ast b) = f(a) \cdot f(b) \in N^{\prime}$.
+\end{proof}
+
+\begin{definition} \label{def-magma-isomorphism}
+    A \emph{magma isomorphism} is a bijective magma morphism.
+\end{definition}
+
+\begin{theorem} \label{thm-magma-isomorphism-inverse}
+    If $f$ is an magma isomorphism, then the inverse $f^{-1}$ is a magma morphism. Moreover, it is a magma isomorphism.
+\end{theorem}
+
+\begin{proof}
+    Let $f \colon (M, \ast) \to (M^{\prime}, \cdot)$ be a magma isomorphism and $a, a^{\prime} \in M^{\prime}$. 
+    Then
+    $$
+    \begin{aligned}
+        f^{-1}(a \cdot a^{\prime}) 
+            &= f^{-1}\Big( f\big( f^{-1}(a) \big) \cdot f\big( f^{-1}(a^{\prime}) \big) \Big) \\
+            &= f^{-1}\Big( f\big( f^{-1}(a) \ast f^{-1}(a^{\prime}) \big) \Big) \\
+            &= (f^{-1} \circ f) \Big( f^{-1}(a) \ast f^{-1}(a^{\prime}) \Big) \\
+            &= f^{-1}(a) \ast f^{-1}(a^{\prime})
+    \end{aligned}
+    $$
 \end{proof}
 
 \subsubsection{Monoids and properties}
@@ -161,7 +195,7 @@
 \subsubsection{Submonoid, product and morphism}
 
 \begin{definition} \label{def-monoid-submonoid}
-    Let $(M, \ast)$ be a monoid. A subset $N \subset M$ is a \emph{submonoid} of $(M, \ast)$ if it is its submagma and it containing the identity element.
+    Let $(M, \ast)$ be a monoid. A subset $N \subset M$ is a \emph{submonoid} of $(M, \ast)$ if it is its submagma and containing the identity element.
 \end{definition}
 
 \begin{remark} \label{rem-monoid-canoncial-submonoid}
@@ -169,7 +203,7 @@
 \end{remark}
 
 \begin{remark} \label{rem-monoid-submonoids-interesection}
-    Any intersection of monoids of a monoid $(M, \ast)$ is a submonoid of $(M, \ast)$.
+    Any intersection of submonoids of a monoid $(M, \ast)$ is a submonoid of $(M, \ast)$.
 \end{remark}
 
 \begin{proof}
@@ -185,8 +219,51 @@
 \end{proof}
 
 \begin{definition} \label{def-monoid-morphism}
-    A \emph{morphism of monoids} is a morphism between underlying magmas, such that it preserves the identity element.
+    A \emph{monoid morphism} is a morphism between underlying magmas, such that it preserves the identity element.
 \end{definition}
+
+\begin{proposition} \label{prop-monoid-morphism-composition}
+    A composition of monoid morphisms is a monoid morphism.
+\end{proposition}
+
+\begin{proof}
+    By \eqref{prop-magma-morphism-composition} and the fact that the invariance is stable under composition.
+\end{proof}
+
+\begin{theorem} \label{thm-monoid-morphism-image}
+    Let $f \colon M \to M^{\prime}$ be a monoid morphism, then:
+    \begin{enumerate}[label=(\roman*)]
+        \item If $N$ is a submonoid of $M$, then $f(N)$ is a submonoid of $M^{\prime}$,
+        \item If $N^{\prime}$ is a submonoid of $M^{\prime}$, then $f^{-1}(N^{\prime})$ is a submonoid of $M$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Induced by \eqref{thm-magma-morphism-image} and the fact that a monoid morphism preserves the identity.
+\end{proof}
+
+\begin{proposition} \label{prop-monoid-invertible-image}
+    Let $f \colon (M, \ast) \to (N, \cdot)$ be a monoid morphism. If $a \in M$ is invertible, then $f(a) \in N$ is also invertible.
+\end{proposition}
+
+\begin{proof}
+    $$
+        f(a) \cdot f(a^{-1}) = f(a \ast a^{-1}) = f(e_{M}) = e_{N}.
+    $$
+    So, $f(a)$ is invertible, and its inverse is $f(a^{-1})$.
+\end{proof}
+
+\begin{definition} \label{def-monoid-isomorphism}
+    A \emph{monoid isomorphism} is a bijective monoid morphism.
+\end{definition}
+
+\begin{theorem} \label{thm-monoid-isomorphism-inverse}
+    If $f$ is a monoid isomorphism, then the inverse $f^{-1}$ is a monoid morphism. Moreover, it is a monoid isomorphism.
+\end{theorem}
+
+\begin{proof}
+    By \eqref{thm-magma-isomorphism-inverse} and the fact that $f^{-1}$ preserves also identity.
+\end{proof}
 
 \subsubsection{Groups}
 
@@ -210,7 +287,7 @@
     It is induced by \eqref{prop-monoid-product} and \eqref{prop-magma-product-reversibility}.
 \end{proof}
 
-\subsection{Subgroups, morphism of groups}
+\subsection{Subgroups, group morphisms}
 \subsubsection{Subgroups}
 
 \begin{definition} \label{def-subgroup}
@@ -241,10 +318,10 @@
     By \eqref{rem-monoid-submonoids-interesection} and the fact that stability under inversion is preserved after intersection.
 \end{proof}
 
-\subsubsection{Morphism of groups}
+\subsubsection{Group morphisms}
 
 \begin{definition} \label{def-group-morphism}
-    A \emph{morphism of groups} is a morphism of underlying magmas.
+    A \emph{group morphism} is a morphism of underlying magmas.
 \end{definition}
 
 \begin{notation} \label{not-group-operation}
@@ -254,11 +331,11 @@
 \end{notation}
 
 \begin{definition} \label{def-group-morphism-domain}
-    Let $f \colon G \to G^{\prime}$ be a morphism of groups. We say that $G$ is the \emph{domain} of $f$, and $G^{\prime}$ is the \emph{codomain} of $f$.
+    Let $f \colon G \to G^{\prime}$ be a group morphism. We say that $G$ is the \emph{domain} of $f$, and $G^{\prime}$ is the \emph{codomain} of $f$.
 \end{definition}
 
 \begin{proposition} \label{prop-group-morphism-reversibility}
-    Let $G, G^{\prime}$ be two groups and $f \colon G \to G^{\prime}$ be a morphism of groups. Then $f(e_{G}) = e_{G^{\prime}}$ and for all $x \in G, \; f(x^{-1}) = f(x)^{-1}$.
+    Let $G, G^{\prime}$ be two groups and $f \colon G \to G^{\prime}$ be a group morphism. Then $f(e_{G}) = e_{G^{\prime}}$ and for all $x \in G, \; f(x^{-1}) = f(x)^{-1}$.
 \end{proposition}
 
 \begin{proof}
@@ -266,7 +343,7 @@
 \end{proof}
 
 \begin{proposition} \label{prop-group-morphism-composition}
-    A composition of morphisms of groups is a morphism of groups.
+    A composition of group morphisms is a group morphism.
 \end{proposition}
 
 \begin{proof}
@@ -274,7 +351,7 @@
 \end{proof}
 
 \begin{theorem} \label{thm-group-morphism-image}
-    Let $G, G^{\prime}$ be two groups and $f \colon G \to G^{\prime}$ be a morphism of groups.
+    Let $f \colon G \to G^{\prime}$ be a group morphism.
     \begin{enumerate}[label=(\roman*)]
         \item If $H$ is a subgroup of $G$, then $f(H)$ is a subgroup of $G^{\prime}$,
         \item If $H^{\prime}$ is a subgroup of $G^{\prime}$, then $f^{-1}(H^{\prime})$ is a subgroup of $G$.
@@ -282,18 +359,18 @@
 \end{theorem}
 
 \begin{proof}
-    Admitted.
+    Induced by \eqref{thm-monoid-morphism-image} and \eqref{prop-group-morphism-reversibility}.
 \end{proof}
 
 \begin{definition} \label{def-group-morphism-kernel}
-    The \emph{kernel} of a morphism of groups $f \colon G \to G^{\prime}$ is defined by
+    The \emph{kernel} of a group morphism $f \colon G \to G^{\prime}$ is defined by
     $$
         \text{Ker}(f) = \lbrace a \in G \mid f(a) = e_{G^{\prime}} \rbrace
     $$
 \end{definition}
 
 \begin{proposition} \label{prop-group-morphism-kernel-subgroup}
-    The kernel of a morphism of groups $f \colon G \to G^{\prime}$ is a subgroup of $G$.
+    The kernel of a group morphism $f \colon G \to G^{\prime}$ is a subgroup of $G$.
 \end{proposition}
 
 \begin{proof}
@@ -309,14 +386,14 @@
 \end{proof}
 
 \begin{definition} \label{def-group-morphism-image}
-    The \emph{image} of a morphism of groups $f \colon G \to G^{\prime}$ is defined by
+    The \emph{image} of a group morphism $f \colon G \to G^{\prime}$ is defined by
     $$
         \text{Im}(f) = \lbrace b \in G^{\prime} \mid \exists a \in G, \; f(a) = b \rbrace
     $$
 \end{definition}
 
 \begin{proposition} \label{prop-group-morphism-image-subgroup}
-    The image of a morphism of groups $f \colon G \to G^{\prime}$ is a subgroup of $G^{\prime}$.
+    The image of a group morphism $f \colon G \to G^{\prime}$ is a subgroup of $G^{\prime}$.
 \end{proposition}
 
 \begin{proof}
@@ -326,7 +403,7 @@
 \subsubsection{Isomorphism of groups}
 
 \begin{definition} \label{def-group-isomorphism}
-    An \emph{isomorphism of groups} is a bijective morphism of groups.
+    A \emph{group isomorphism} is a bijective group morphism.
 \end{definition}
 
 \begin{notation}
@@ -334,7 +411,7 @@
 \end{notation}
 
 \begin{theorem} \label{thm-group-isomorphism-composition}
-    The composition of two isomorphisms of groups is an isomorphism of groups.
+    The composition of two group isomorphisms is an group isomorphism.
 \end{theorem}
 
 \begin{proof}
@@ -342,20 +419,11 @@
 \end{proof}
 
 \begin{theorem} \label{thm-group-isomorphism-inverse}
-    If $f$ is an isomorphism of groups, then the inverse $f^{-1}$ is a morphism of groups. Moreover, it is an isomorphism of groups.
+    If $f$ is a group isomorphism, then the inverse $f^{-1}$ is a group morphism. Moreover, it is a group isomorphism.
 \end{theorem}
 
 \begin{proof}
-    Let $f \colon G \to G^{\prime}$ be an isomorphism of groups and $y, y^{\prime} \in G^{\prime}$. 
-    Then
-    $$
-    \begin{aligned}
-        f^{-1}(y y^{\prime}) 
-            &= f^{-1}\Big( f\big( f^{-1}(y) \big) f\big( f^{-1}(y^{\prime}) \big) \Big) \\
-            &= f^{-1}\Big( f\big( f^{-1}(y) f^{-1}(y^{\prime}) \big) \Big) \\
-            &= f^{-1}(y) f^{-1}(y^{\prime})
-    \end{aligned}
-    $$
+    Induced by \eqref{thm-magma-isomorphism-inverse}.
 \end{proof}
 
 \begin{proposition}
@@ -480,10 +548,63 @@
     Let $A$ be a ring. The intersection of any family of subrings of $A$ is also a subring of $A$. In particular, if $X$ is a subset of $A$, the intersection of subrings of $A$ containing $X$ is the smallest subring of $A$ containing $X$, called the \emph{subring} of $A$ \emph{generated} by $X$.
 \end{proposition}
 
-\subsubsection{Morphism of rings}
+\subsubsection{Ring morphisms}
 
 \begin{definition} \label{def-ring-morphism}
-    Let $A$ and $B$ be two rings. A map $f \colon A \to B$ is a \emph{morphism of rings} if it is a group morphism from $(A, +)$ to $(B, +)$ and a monoid morphism from $(A, \cdot)$ to $(B, \cdot)$.
+    Let $A$ and $B$ be two rings. A map $f \colon A \to B$ is a \emph{ring morphism} if it is a group morphism from $(A, +)$ to $(B, +)$ and a monoid morphism from $(A, \cdot)$ to $(B, \cdot)$.
 \end{definition}
+
+\begin{proposition} \label{prop-ring-morphism-composition}
+    A composition of ring morphisms is a ring morphism.
+\end{proposition}
+
+\begin{proof}
+    By \eqref{prop-group-morphism-composition} and \eqref{prop-monoid-morphism-composition}.
+\end{proof}
+
+\begin{definition} \label{def-ring-isomorphism}
+    An \emph{isomorphism of rings} is a bijective ring morphism.
+\end{definition}
+
+\begin{theorem} \label{thm-ring-isomorphism-inverse}
+    If $f$ is a ring isomorphism, then the inverse $f^{-1}$ is a ring morphism. Moreover, it is a ring isomorphism.
+\end{theorem}
+
+\begin{proof}
+    Induced by \eqref{thm-group-isomorphism-inverse} and \eqref{thm-monoid-isomorphism-inverse}.
+\end{proof}
+
+\begin{proposition} \label{prop-ring-invertible-image}
+    Let $f \colon A \to B$ be a ring morphism. Then $f(A^{\ast}) \subset B^{\ast}$ and $f$ induces a group morphism $(A^{\ast}, \cdot) \to (B^{\ast}, \cdot)$.
+\end{proposition}
+
+\begin{proof}
+    Induced by \eqref{prop-monoid-invertible-image}.
+\end{proof}
+
+\begin{proposition} \label{prop-field-morphism-injectivity}
+    Any morphism of fields is injective.
+\end{proposition}
+
+\begin{proof}
+    Let $f \colon F \to G$ be a morphism between fields. We have $f(F \setminus \lbrace 0 \rbrace) \subset G \setminus \lbrace 0 \rbrace$ by \eqref{prop-ring-invertible-image}, so $f^{-1}(\lbrace 0 \rbrace) \subset \lbrace 0 \rbrace$ which induces that $f$ is injective by \eqref{prop-group-morphism-inj-criterion}.
+\end{proof}
+
+\subsection{Ideals}
+
+\begin{definition} \label{def-ring-ideal}
+    Let $A$ be a ring. A subset $I \subset A$ is an \emph{left ideal} (resp. \emph{right ideal}) if it is a subgroup of $(A, +)$ and stable under external multiplication:
+    $$
+        \forall a \in A, \forall b \in I, \; a \cdot b \in I \; (\text{resp. } b \cdot a \in I).
+    $$
+\end{definition}
+
+\begin{definition} \label{def-ring-ideal-two-sided}
+    A \emph{two-sided ideal} (or simply \emph{ideal}) is a subset $I \subset A$ that is both a left ideal and a right ideal.
+\end{definition}
+
+\begin{remark}
+    In a commutative ring, the notions of left ideals and right ideals coincide.
+\end{remark}
 
 \end{document}

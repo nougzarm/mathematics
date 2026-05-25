@@ -83,7 +83,7 @@
 \end{proposition}
 
 \begin{proof}
-    Admitted.
+    Omitted.
 \end{proof}
 
 \begin{proposition} \label{prop-magma-product-reversibility}
@@ -91,7 +91,7 @@
 \end{proposition}
 
 \begin{proof}
-    Admitted.
+    Omitted.
 \end{proof}
 
 \begin{remark}
@@ -101,7 +101,7 @@
 \subsubsection{Magma morphisms}
 
 \begin{definition} \label{def-magma-morphism}
-    A \emph{magma morphism} between $(M, \ast)$ and $(N, \cdot)$ is a map $f \colon M \to N$ such that:
+    A \emph{magma morphism} from $(M, \ast)$ to $(N, \cdot)$ is a map $f \colon M \to N$ such that:
     $$
         \forall a, b \in M, \; f(a \ast b) = f(a) \cdot f(b)
     $$
@@ -112,7 +112,7 @@
 \end{proposition}
 
 \begin{proof}
-    Admitted.
+    Omitted.
 \end{proof}
 
 \begin{theorem} \label{thm-magma-morphism-image}
@@ -132,7 +132,7 @@
 \end{definition}
 
 \begin{theorem} \label{thm-magma-isomorphism-inverse}
-    If $f$ is an magma isomorphism, then the inverse $f^{-1}$ is a magma morphism. Moreover, it is a magma isomorphism.
+    If $f$ is a magma isomorphism, then the inverse $f^{-1}$ is a magma morphism. Moreover, it is a magma isomorphism.
 \end{theorem}
 
 \begin{proof}
@@ -339,7 +339,7 @@
 \end{proposition}
 
 \begin{proof}
-    Admitted.
+    Omitted.
 \end{proof}
 
 \begin{proposition} \label{prop-group-morphism-composition}
@@ -386,10 +386,7 @@
 \end{proof}
 
 \begin{definition} \label{def-group-morphism-image}
-    The \emph{image} of a group morphism $f \colon G \to G^{\prime}$ is defined by
-    $$
-        \text{Im}(f) = \lbrace b \in G^{\prime} \mid \exists a \in G, \; f(a) = b \rbrace
-    $$
+    The \emph{image} of a group morphism is the set image of the underlying map.
 \end{definition}
 
 \begin{proposition} \label{prop-group-morphism-image-subgroup}
@@ -411,7 +408,7 @@
 \end{notation}
 
 \begin{theorem} \label{thm-group-isomorphism-composition}
-    The composition of two group isomorphisms is an group isomorphism.
+    The composition of two group isomorphisms is a group isomorphism.
 \end{theorem}
 
 \begin{proof}
@@ -495,7 +492,7 @@
 \end{proposition}
 
 \begin{proof}
-    Admitted.
+    Omitted.
 \end{proof}
 
 \section{Rings}
@@ -590,7 +587,34 @@
     Let $f \colon F \to G$ be a morphism between fields. We have $f(F \setminus \lbrace 0 \rbrace) \subset G \setminus \lbrace 0 \rbrace$ by \eqref{prop-ring-invertible-image}, so $f^{-1}(\lbrace 0 \rbrace) \subset \lbrace 0 \rbrace$ which induces that $f$ is injective by \eqref{prop-group-morphism-inj-criterion}.
 \end{proof}
 
-\subsection{Ideals}
+\subsubsection{Kernel and Image}
+
+\begin{definition} \label{def-ring-morphism-kernel}
+    The \emph{kernel} of a ring morphism is its kernel as a additive group morphism.
+\end{definition}
+
+\begin{proposition} \label{prop-ring-morphism-inj-criterion}
+    A morphism of rings $f$ is injective if, and only if, $\text{Ker}(f) = \lbrace 0 \rbrace$.
+\end{proposition}
+
+\begin{proof}
+    Direct consequence of \eqref{prop-ring-morphism-inj-criterion}.
+\end{proof}
+
+\begin{definition} \label{def-ring-morphism-image}
+    The \emph{image} of a ring morphism is the set image of the underlying map.
+\end{definition}
+
+\begin{proposition} \label{prop-ring-morphism-image-subring}
+    The image of a ring morphism $f \colon A \to B$ is a subring of $B$.
+\end{proposition}
+
+\begin{proof}
+    Induced by \eqref{prop-group-morphism-image-subgroup} and \eqref{thm-monoid-morphism-image}-(i).
+\end{proof}
+
+\subsection{Ideals and quotients}
+\subsubsection{Ideals}
 
 \begin{definition} \label{def-ring-ideal}
     Let $A$ be a ring. A subset $I \subset A$ is an \emph{left ideal} (resp. \emph{right ideal}) if it is a subgroup of $(A, +)$ and stable under external multiplication:
@@ -604,7 +628,35 @@
 \end{definition}
 
 \begin{remark}
-    In a commutative ring, the notions of left ideals and right ideals coincide.
+    In a commutative ring, being a left ideal is equivalent to being a right ideal.
 \end{remark}
+
+\begin{proposition} \label{prop-ring-morphism-kernel-ideal}
+    The kernel of a ring morphism $f \colon A \to B$ is an ideal of $A$.
+\end{proposition}
+
+\begin{proof}
+    By \eqref{prop-group-morphism-kernel-subgroup} we have that it is a subgroup of $(A, +)$. Moreover, for all $a \in A$ and $b \in \text{Ker}(f)$, we have $f(ab) = f(a) f(b) = 0$ (resp. $f(ba) = 0$), hence $ab$ (resp. $ba$) is in $\text{Ker}(f)$.
+\end{proof}
+
+\subsubsection{Quotients}
+
+\begin{proposition}
+    Let $A$ be a ring and a additive subgroup $I \subset A$. The following assertions are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $I$ is an ideal of $A$,
+        \item The group quotient $A / I$ has a ring structure, such that the canonical surjection $\pi \colon A \longrightarrow A / I$ is a ring morphism.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    If there exists a ring structure on $A / I$ such that the canonical surjection is a ring morphism, then its kernel, which is $I$, is an ideal of $A$ by \eqref{prop-ring-morphism-kernel-ideal}. 
+    
+    Conversely, if $I$ is an ideal of $A$: We define the operation $\cdot$ on $A / I$ by:
+    $$
+    \forall a, b \in A, \; \pi(a) \cdot \pi(b) = \pi(ab)
+    $$
+    To show that this definition is correct, it requires to show that $\pi(ab) = \pi(a^{\prime} b^{\prime})$ for all $(a, b), (a^{\prime}, b^{\prime}) \in A^2$ such that $\pi(a) = \pi(a^{\prime})$ and $\pi(b) = \pi(b^{\prime})$. However, $\pi(x) = \pi(y)$ if, and only if, $x - y \in I$. Hence, it suffices to show that $ab - a^{\prime} b^{\prime} \in I$. To see it: $ab - a^{\prime} b^{\prime} = a(b - b^{\prime}) + (a - a^{\prime})b^{\prime} \in I$. To finish, the surjectivity of $\pi$ implies that this operation is well-defined on all $A / I$.
+\end{proof}
 
 \end{document}

@@ -19,9 +19,9 @@
 
 \begin{definition} \label{def-magma}
     A \emph{magma} is a pair $(M, \ast)$ with $M$ a set and 
-    $$
+    \[
         \ast \colon M \times M \to M
-    $$
+    \]
     an internal composition law.
 \end{definition}
 
@@ -52,9 +52,9 @@
 \subsubsection{Submagmas}
 \begin{definition} \label{def-magma-submagma}
     Let $(M, \ast)$ be a magma. A subset $N \subset M$ is a \emph{submagma} of $(M, \ast)$ if the operation $\ast$ is stable under $N$:
-    $$
+    \[
         \forall a, b \in N, \; a \ast b \in N.
-    $$
+    \]
 \end{definition}
 
 \begin{remark} \label{rem-magma-canoncial-submagma}
@@ -69,9 +69,9 @@
 
 \begin{definition} \label{def-magma-product}
     Given two magmas $(M, \ast)$ and $(N, \cdot)$, we define a canonical structure of magma on the set $M \times N$, defined by the following internal composition law:
-    $$
+    \[
         \big((a, b), (a^{\prime}, b^{\prime}) \big) \mapsto (a \ast a^{\prime}, b \cdot b^{\prime})
-    $$
+    \]
 \end{definition}
 
 \begin{proposition} \label{prop-magma-product-props}
@@ -102,9 +102,9 @@
 
 \begin{definition} \label{def-magma-morphism}
     A \emph{magma morphism} from $(M, \ast)$ to $(N, \cdot)$ is a map $f \colon M \to N$ such that:
-    $$
+    \[
         \forall a, b \in M, \; f(a \ast b) = f(a) \cdot f(b)
-    $$
+    \]
 \end{definition}
 
 \begin{proposition} \label{prop-magma-morphism-composition}
@@ -138,15 +138,15 @@
 \begin{proof}
     Let $f \colon (M, \ast) \to (M^{\prime}, \cdot)$ be a magma isomorphism and $a, a^{\prime} \in M^{\prime}$. 
     Then
-    $$
-    \begin{aligned}
-        f^{-1}(a \cdot a^{\prime}) 
-            &= f^{-1}\Big( f\big( f^{-1}(a) \big) \cdot f\big( f^{-1}(a^{\prime}) \big) \Big) \\
-            &= f^{-1}\Big( f\big( f^{-1}(a) \ast f^{-1}(a^{\prime}) \big) \Big) \\
-            &= (f^{-1} \circ f) \Big( f^{-1}(a) \ast f^{-1}(a^{\prime}) \Big) \\
-            &= f^{-1}(a) \ast f^{-1}(a^{\prime})
-    \end{aligned}
-    $$
+    \[
+        \begin{aligned}
+            f^{-1}(a \cdot a^{\prime}) 
+                &= f^{-1}\Big( f\big( f^{-1}(a) \big) \cdot f\big( f^{-1}(a^{\prime}) \big) \Big) \\
+                &= f^{-1}\Big( f\big( f^{-1}(a) \ast f^{-1}(a^{\prime}) \big) \Big) \\
+                &= (f^{-1} \circ f) \Big( f^{-1}(a) \ast f^{-1}(a^{\prime}) \Big) \\
+                &= f^{-1}(a) \ast f^{-1}(a^{\prime})
+        \end{aligned}
+    \]
 \end{proof}
 
 \subsubsection{Monoids and properties}
@@ -161,16 +161,16 @@
 
 \begin{proof}
     Let $b, b^{\prime} \in M$ be two inverses of $a$. Then we have
-    $$
+    \[
         b = b \ast (a \ast b^{\prime}) = (b \ast a) \ast b^{\prime} = b^{\prime}.
-    $$
+    \]
 \end{proof}
 
 \begin{notation} \label{not-monoid-exposant}
     If $(M, \ast)$ is a monoid, then for all $a \in M$, we denote:
-    $$
+    \[
         a^0 = e \quad \text{and} \quad a^n = \underbrace{a \ast \dots \ast a}_{n \text{ times}} \quad (\text{for } n \geq 1).
-    $$
+    \]
 \end{notation}
 
 \begin{proposition}
@@ -247,9 +247,9 @@
 \end{proposition}
 
 \begin{proof}
-    $$
+    \[
         f(a) \cdot f(a^{-1}) = f(a \ast a^{-1}) = f(e_{M}) = e_{N}.
-    $$
+    \]
     So, $f(a)$ is invertible, and its inverse is $f(a^{-1})$.
 \end{proof}
 
@@ -300,9 +300,9 @@
 
 \begin{proposition} \label{prop-subgroup-criterion}
     Let $(G, \ast)$ be a group. A non-empty subset $H \subseteq G$ is a subgroup of $G$ if and only if:
-    $$
+    \[
         \forall x, y \in H, \quad x \ast y^{-1} \in H.
-    $$
+    \]
 \end{proposition}
 
 \begin{proof}
@@ -364,9 +364,9 @@
 
 \begin{definition} \label{def-group-morphism-kernel}
     The \emph{kernel} of a group morphism $f \colon G \to G^{\prime}$ is defined by
-    $$
+    \[
         \text{Ker}(f) = \lbrace a \in G \mid f(a) = e_{G^{\prime}} \rbrace
-    $$
+    \]
 \end{definition}
 
 \begin{proposition} \label{prop-group-morphism-kernel-subgroup}
@@ -435,9 +435,9 @@
 
 \begin{definition} \label{def-group-normal-subgroup}
     Let $G$ be a group. A subgroup $H$ of $G$ is said to be a \emph{normal} subgroup if:
-    $$
+    \[
         \forall h \in H, \forall g \in G, \; g h g^{-1} \in H
-    $$
+    \]
 \end{definition}
 
 \begin{remark}
@@ -446,12 +446,12 @@
 
 \begin{definition} \label{def-group-canoncial-surjection}
     Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh \mid h \in H \rbrace$, called the \emph{left coset} of $g$ modulo $H$. The left cosets constitute a partition of $G$; The set of left cosets modulo $H$ is called the \emph{left quotient} of $G$ by $H$, denoted by $G / H$; the map
-    $$
+    \[
         \begin{aligned}
             \pi \colon G &\longrightarrow G / H \\
             g &\longmapsto gH
         \end{aligned}
-    $$
+    \]
     is called the \emph{canonical surjection}.
 \end{definition}
 
@@ -461,20 +461,20 @@
 
 \begin{proposition}
     Let $G$ be a group and $H$ a subgroup of $G$. Then we have
-    $$
+    \[
         \lvert G \rvert = [G : H] \lvert H \rvert
-    $$
+    \]
 \end{proposition}
 
 \begin{proof}
     Let $X$ be a subset of $G$ such that the restriction of the canonical surjection $\pi \colon G \to G / H$ to $X$ is bijective. Then we have $[G : H] = \text{card}(X)$ ($X$ is a system of representatives of left cosets of $G$ by $H$).
     Let the map
-    $$
+    \[
         \begin{aligned}
             f \colon X \times H &\longrightarrow G \\
             (x, h) &\longmapsto xh
         \end{aligned}
-    $$
+    \]
     which is a bijection. Hence, $\lvert G \rvert = \text{card} (X \times H) = [G : H] \lvert H \rvert$.
 \end{proof}
 
@@ -495,15 +495,16 @@
     Omitted.
 \end{proof}
 
+\newpage
 \section{Rings}
 \subsection{Generalities}
 \subsubsection{Rings and subrings}
 
 \begin{definition} \label{def-ring}
     A \emph{ring} is a triplet $(A, +, \cdot)$ such that $(A, +)$ is an abelian group, $(A, \cdot)$ is a monoid, and the operation $\cdot$ is distributive over $+$:
-    $$
+    \[
         \forall a, b, c \in A, \quad a \cdot (b + c) = a \cdot b + a \cdot c \quad \text{and} \quad (b + c) \cdot a = b \cdot a + c \cdot a
-    $$
+    \]
 \end{definition}
 
 \begin{notation} \label{not-ring-identities}
@@ -516,9 +517,9 @@
 
 \begin{remark}
     Let $A$ be a ring. Then for all $a \in A$:
-    $$
+    \[
         0 \cdot a = a \cdot 0 = 0 \quad \text{and} \quad (-1) \cdot a = -a = a \cdot (-1)
-    $$
+    \]
 \end{remark}
 
 \begin{remark} \label{rem-ring-trivial-ring}
@@ -618,9 +619,9 @@
 
 \begin{definition} \label{def-ring-ideal}
     Let $A$ be a ring. A subset $I \subset A$ is an \emph{left ideal} (resp. \emph{right ideal}) if it is a subgroup of $(A, +)$ and stable under external multiplication:
-    $$
+    \[
         \forall a \in A, \forall b \in I, \; a \cdot b \in I \; (\text{resp. } b \cdot a \in I).
-    $$
+    \]
 \end{definition}
 
 \begin{definition} \label{def-ring-ideal-two-sided}
@@ -653,10 +654,44 @@
     If there exists a ring structure on $A / I$ such that the canonical surjection is a ring morphism, then its kernel, which is $I$, is an ideal of $A$ by \eqref{prop-ring-morphism-kernel-ideal}. 
     
     Conversely, if $I$ is an ideal of $A$: We define the operation $\cdot$ on $A / I$ by:
-    $$
-    \forall a, b \in A, \; \pi(a) \cdot \pi(b) = \pi(ab)
-    $$
+    \[
+        \forall a, b \in A, \; \pi(a) \cdot \pi(b) = \pi(ab)
+    \]
     To show that this definition is correct, it requires to show that $\pi(ab) = \pi(a^{\prime} b^{\prime})$ for all $(a, b), (a^{\prime}, b^{\prime}) \in A^2$ such that $\pi(a) = \pi(a^{\prime})$ and $\pi(b) = \pi(b^{\prime})$. However, $\pi(x) = \pi(y)$ if, and only if, $x - y \in I$. Hence, it suffices to show that $ab - a^{\prime} b^{\prime} \in I$. To see it: $ab - a^{\prime} b^{\prime} = a(b - b^{\prime}) + (a - a^{\prime})b^{\prime} \in I$. To finish, the surjectivity of $\pi$ implies that this operation is well-defined on all $A / I$.
+\end{proof}
+
+\begin{definition} \label{def-ring-quotient}
+    Let $A$ be a ring and $I \subset A$ an ideal. The ring quotient $A / I$ is called \emph{quotient of} $A$ \emph{by} $I$.
+\end{definition}
+
+\begin{theorem} \label{thm-ring-morphism-quotient}
+    Let $f \colon A \to B$ be a ring morphism, an ideal $I \subset A$, and the canonical surjection $\pi \colon A \to A / I$. Then, the following assertions are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $I \subset \text{Ker} \; f$,
+        \item There exists a ring morphism $g \colon A / I \to B$, such that $g \circ \pi = f$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\begin{corollary} \label{cor-ring-morphism-quotient}
+Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
+    \[
+        \tilde{f} \colon A / \text{Ker} f \longrightarrow \text{Im} f
+    \]
+    such that the following diagram is commutative:
+    \[
+        \begin{tikzcd}
+            A \arrow[r, "f"] \arrow[d, "\pi"'] & B \\
+            A / \text{Ker} f \arrow[r, "\tilde{f}"'] & \text{Im} f \arrow[u, hook]
+        \end{tikzcd}
+    \]
+\end{corollary}
+
+\begin{proof}
+    Omitted.
 \end{proof}
 
 \end{document}

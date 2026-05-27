@@ -531,7 +531,7 @@
 \end{definition}
 
 \begin{definition} \label{def-ring-field}
-    Let $A$ be a ring. We say that $A$ is a \emph{field} if $A^{\ast} = A \setminus \lbrace 0 \rbrace$.
+    A \emph{field} is a commutative ring $A$, such that $A^{\ast} = A \setminus \lbrace 0 \rbrace$.
 \end{definition}
 
 \begin{definition} \label{def-ring-subring}
@@ -689,6 +689,144 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
         \end{tikzcd}
     \]
 \end{corollary}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\newpage
+\section{Commutative rings}
+\subsection{Nilpotency}
+
+\begin{definition} \label{def-ring-niloptent-element}
+    An element $x$ of a ring $A$ is called \emph{niloptent} if there existe a positive integer $n$, such that $x^n = 0_{A}$.
+\end{definition}
+
+\begin{definition} \label{def-ring-niloptent-subset}
+    Let $A$ be a ring. We denote $\text{Nil}(A)$, the set of nilpotent elements of $A$.
+\end{definition}
+
+\begin{definition} \label{def-ring-nilpotency-index}
+    The \emph{nilpotency index} (or \emph{nilpotency degre}) of a nilpotent element $x \in A$ is the smallest positive integer $n$, such that $x^n = 0_A$.
+\end{definition}
+
+\begin{lemma} \label{lem-ring-newton-formula}
+    If $R$ is a commutative ring, then we have the Newton Formula:
+    \[
+        (x + y)^n = \sum\limits_{k = 0}^n \binom{n}{k} x^k y^{n - k}, \quad \forall x, y \in R, \; \forall n \in \mathbb{N}.
+    \]
+\end{lemma}
+
+\begin{proposition} \label{prop-ring-niloptent-ideal}
+    If $R$ is a commutative ring, then $\text{Nil}(R)$ is an ideal of $R$.
+\end{proposition}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\subsection{Zero divisors, Integral domain}
+\subsubsection{Zero divisors}
+
+\begin{definition} \label{def-ring-lr-zero-div}
+    An element $a$ of a ring $A$ is called a \emph{left zero divisor} (resp. \emph{right zero divisor}) if there exists a nonzero $b \in A$, such that $ab = 0$ (resp. $ba = 0$).
+\end{definition}
+
+\begin{proposition} \label{prop-ring-lr-zero-div-eq}
+    An element $a$ of a ring $A$ is a left zero divisor (resp. right zero divisor) if, and only if, $b \mapsto ab$ (resp. $b \mapsto ba$) is not injective.
+\end{proposition}
+
+\begin{proof}
+    Obvious.
+\end{proof}
+
+\begin{definition} \label{def-ring-zero-div}
+    An element of a ring that is both a left and a right zero divisor is called a \emph{zero divisor}.
+\end{definition}
+
+\begin{remark} \label{rem-ring-commutative-zero-div}
+    In a commutative ring, any element is a left zero divisor if, and only if, it is a right zero divisor.
+\end{remark}
+
+\subsubsection{Integral domain}
+
+\begin{definition} \label{def-integral-domain}
+    An \emph{integral domain} is a nonzero commutative ring in which the product of any two nonzero elements is nonzero.
+\end{definition}
+
+\begin{proposition} \label{prop-integral-domain-contrapositive}
+    If $R$ is an integral domain, then for all $a, b \in R$:
+    \[
+        ab = 0 \implies a = 0 \; \text{or} \; b = 0
+    \]
+\end{proposition}
+
+\begin{proof}
+    By contrapositive of the property of the definition of domain integral \eqref{def-integral-domain}.
+\end{proof}
+
+\begin{proposition} \label{prop-integral-domain-eq}
+    A commutative non zero ring is an \emph{integral domain} if, and only if, it is with no nonzero zero divisors.
+\end{proposition}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\begin{lemma} \label{lem-ring-cancellation-property}
+    If $R$ is an integral domain and $a, b, c \in R$, then $a \neq 0, \; ab = ac$ implies $b = c$.
+\end{lemma}
+
+\begin{proof}
+    $ab = ac$ implies $a (b - c) = 0$. However, $a \neq 0$ and $R$ is an integral domain, hence $b - c = 0$ by \eqref{prop-integral-domain-contrapositive}.
+\end{proof}
+
+\begin{proposition} \label{prop-field-integral-domain}
+    Any field is an integral domain.
+\end{proposition}
+
+\begin{proof}
+    The definition of fields (see \eqref{def-ring-field}) means that, the subset of nonzero elements is a multiplicative group. Hence any product of nenzero elements is a nonzero element.
+\end{proof}
+
+\subsection{Prime and maximal ideals}
+\subsubsection{Prime ideals}
+
+\begin{definition} \label{def-ring-prime-ideal}
+    A \emph{prime ideal} of a commutative ring $R$ is an ideal $I \subset R$, such that the quotient ring $R / I$ is an integral domain.
+\end{definition}
+
+\begin{proposition} \label{prop-ring-prime-ideal-eq}
+    $I \subset R$ is a prime ideal if, and only if, $I \neq R$ and for all $a, b \in R$:
+    \[
+        ab \in I \implies a \in I \; \text{or} \; b \in I.
+    \]
+\end{proposition}
+
+\begin{proof}
+    Direct consequence of \eqref{prop-integral-domain-contrapositive}.
+\end{proof}
+
+\begin{proposition}
+    Let $R$ be a commutative ring. The intersection of prime ideals of $R$ is equal to the ideal $\text{Nil}(R)$.
+\end{proposition}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\subsubsection{Maximal ideals}
+
+\begin{definition} \label{def-ring-maximal-ideal}
+    A \emph{maximal ideal} of a commutative ring $R$ is an ideal $I \subset R$, such that the quotient ring $R / I$ is a field.
+\end{definition}
+
+\begin{proposition} \label{prop-ring-maximal-ideal-eq}
+    $I \subset R$ is a maximal ideal if, and only if, $I \neq R$ and for any ideal $J$:
+    \[
+        I \subset J \implies J = I \; \text{or} \; J = R.
+    \]
+\end{proposition}
 
 \begin{proof}
     Omitted.

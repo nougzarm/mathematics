@@ -57,11 +57,11 @@
     \]
 \end{definition}
 
-\begin{remark} \label{rem-magma-canoncial-submagma}
+\begin{remark} \label{rem-magma-canonical-submagma}
     The submagma $N$ induces the canonical magma $(N, \ast_{\vert N \times N})$.
 \end{remark}
 
-\begin{remark} \label{rem-magma-submagmas-interesection}
+\begin{remark} \label{rem-magma-submagmas-intersection}
     Any intersection of submagmas of a magma $(M, \ast)$ is a submagma of $(M, \ast)$.
 \end{remark}
 
@@ -166,7 +166,7 @@
     \]
 \end{proof}
 
-\begin{notation} \label{not-monoid-exposant}
+\begin{notation} \label{not-monoid-exponent}
     If $(M, \ast)$ is a monoid, then for all $a \in M$, we denote:
     \[
         a^0 = e \quad \text{and} \quad a^n = \underbrace{a \ast \dots \ast a}_{n \text{ times}} \quad (\text{for } n \geq 1).
@@ -202,12 +202,12 @@
     The submonoid $N$ induces the canonical monoid $(N, \ast_{\vert N \times N})$.
 \end{remark}
 
-\begin{remark} \label{rem-monoid-submonoids-interesection}
+\begin{remark} \label{rem-monoid-submonoids-intersection}
     Any intersection of submonoids of a monoid $(M, \ast)$ is a submonoid of $(M, \ast)$.
 \end{remark}
 
 \begin{proof}
-    Obvious by \eqref{rem-magma-submagmas-interesection} and the definition \eqref{def-monoid-submonoid}
+    Obvious by \eqref{rem-magma-submagmas-intersection} and the definition \eqref{def-monoid-submonoid}
 \end{proof}
 
 \begin{proposition} \label{prop-monoid-product}
@@ -315,7 +315,7 @@
 \end{proposition}
 
 \begin{proof}
-    By \eqref{rem-monoid-submonoids-interesection} and the fact that stability under inversion is preserved after intersection.
+    By \eqref{rem-monoid-submonoids-intersection} and the fact that stability under inversion is preserved after intersection.
 \end{proof}
 
 \subsubsection{Group morphisms}
@@ -501,7 +501,7 @@
 \subsubsection{Rings and subrings}
 
 \begin{definition} \label{def-ring}
-    A \emph{ring} is a triplet $(A, +, \cdot)$ such that $(A, +)$ is an abelian group, $(A, \cdot)$ is a monoid, and the operation $\cdot$ is distributive over $+$:
+    A \emph{ring} is a triple $(A, +, \cdot)$ such that $(A, +)$ is an abelian group, $(A, \cdot)$ is a monoid, and the operation $\cdot$ is distributive over $+$:
     \[
         \forall a, b, c \in A, \quad a \cdot (b + c) = a \cdot b + a \cdot c \quad \text{and} \quad (b + c) \cdot a = b \cdot a + c \cdot a
     \]
@@ -585,7 +585,7 @@
 \end{proposition}
 
 \begin{proof}
-    Let $f \colon F \to G$ be a morphism between fields. We have $f(F \setminus \lbrace 0 \rbrace) \subset G \setminus \lbrace 0 \rbrace$ by \eqref{prop-ring-invertible-image}, so $f^{-1}(\lbrace 0 \rbrace) \subset \lbrace 0 \rbrace$ which induces that $f$ is injective by \eqref{prop-group-morphism-inj-criterion}.
+    Let $f \colon F \to G$ be a morphism between fields. We have $f(F \setminus \lbrace 0 \rbrace) \subset G \setminus \lbrace 0 \rbrace$ by \eqref{prop-ring-invertible-image}, so $f^{-1}(\lbrace 0 \rbrace) \subset \lbrace 0 \rbrace$ which implies that $f$ is injective by \eqref{prop-group-morphism-inj-criterion}.
 \end{proof}
 
 \subsubsection{Kernel and Image}
@@ -729,7 +729,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \subsubsection{Zero divisors}
 
 \begin{definition} \label{def-ring-lr-zero-div}
-    An element $a$ of a ring $A$ is called a \emph{left zero divisor} (resp. \emph{right zero divisor}) if there exists a nonzero $b \in A$, such that $ab = 0$ (resp. $ba = 0$).
+    An element $a$ of a ring $A$ is called a \emph{left zero divisor} (resp. \emph{right zero divisor}) if there exists a nonzero element $b \in A$, such that $ab = 0$ (resp. $ba = 0$).
 \end{definition}
 
 \begin{proposition} \label{prop-ring-lr-zero-div-eq}
@@ -770,7 +770,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{remark}
 
 \begin{proposition} \label{prop-integral-domain-eq}
-    A commutative non zero ring is an \emph{integral domain} if, and only if, it is with no nonzero zero divisors.
+    A commutative non zero ring is an \emph{integral domain} if, and only if, it has no nonzero zero divisors.
 \end{proposition}
 
 \begin{proof}
@@ -837,5 +837,86 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \begin{proof}
     Omitted.
 \end{proof}
+
+\subsection{Localization}
+
+\begin{definition} \label{def-ring-multiplicative-subset}
+    A subset $S$ of a ring $A$ is a \emph{multiplicative subset} if it contains $1_A$ and is closed under multiplication:
+    \[
+        \forall a, b \in S, \; ab \in S.
+    \]
+\end{definition}
+
+\begin{remark}
+    If $R$ is an integral domain, then $R \setminus \lbrace 0 \rbrace$ is a multiplicative subset.
+\end{remark}
+
+\begin{proposition} \label{prop-ring-localization-relation}
+    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. The relation $\mathcal{R}_S$, on $R \times S$, defined as follows:
+    \[
+        (x, s) \sim (x^{\prime}, s^{\prime}) \iff \exists \sigma \in S, \; \sigma x s^{\prime} = \sigma x^{\prime} s.
+    \]
+    is an equivalence relation.
+\end{proposition}
+
+\begin{proof}
+    It is clear that this relation is reflexive and symmetric. Let $(x, s), (x^{\prime}, s^{\prime}), (x^{\prime \prime}, s^{\prime \prime}) \in R \times S$, such that $\sigma x s^{\prime} = \sigma x^{\prime} s$ and $\sigma^{\prime} x^{\prime} s^{\prime \prime} = \sigma^{\prime} x^{\prime \prime} s^{\prime}$, with $\sigma, \sigma^{\prime} \in S$. Multiplying the first equation by $\sigma^{\prime} s^{\prime \prime}$, and the second by $\sigma s$, we obtain
+    \[
+        \sigma \sigma^{\prime} s^{\prime} x s^{\prime \prime} = \sigma \sigma^{\prime} x^{\prime} s s^{\prime \prime} = \sigma \sigma^{\prime} s^{\prime} x^{\prime \prime} s 
+    \]
+    However, $\sigma \sigma^{\prime} s^{\prime} \in S$. Hence, we have $(x, s) \sim (x^{\prime \prime}, s^{\prime \prime})$.
+\end{proof}
+
+\begin{definition} \label{def-ring-quotient-localization}
+    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. We denote by $S^{-1} R$, the quotient of $R \times S$ by the relation $\mathcal{R}_S$. The equivalence class of an element $(x, s) \in R \times S$ is denoted by the fraction $x / s$.
+\end{definition}
+
+\begin{proposition} \label{prop-ring-quotient-localization-operations}
+    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. Then, we can define two operations $+$ and $\cdot$ by:
+    \[
+        \frac{x}{s} + \frac{x^{\prime}}{s^{\prime}} = \frac{s^{\prime} x + s x^{\prime}}{s s^{\prime}} \; \text{and} \; \frac{x}{s} \cdot \frac{x^{\prime}}{s^{\prime}} = \frac{x x^{\prime}}{s s^{\prime}}
+    \]
+    In particular, these definitions are independent of the choice of representatives for the fraction classes.
+\end{proposition}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\begin{proposition} \label{prop-ring-quotient-localization-ring}
+    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. Then, $S^{-1} R$ equipped with the operations defined in \eqref{prop-ring-quotient-localization-operations} has a ring structure.
+\end{proposition}
+
+\begin{proof}
+    It is clear that the elements $0 / 1$ and $1 / 1$ are respectively the identity elements of $+$ and $\cdot$. Through explicit calculations we demonstrate the associativity of these operations. To finish, the additive inverse of $x / s$ is $ (-x) / s$.
+\end{proof}
+
+\begin{remark}
+    It is clear that the quotient ring $S^{-1} R$, as in \eqref{prop-ring-quotient-localization-ring}, is a nonzero commutative ring.
+\end{remark}
+
+\begin{proposition}
+    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. Then the following map: 
+    \[
+        \begin{aligned}
+            \eta \colon R &\longrightarrow S^{-1} R \\
+            x &\longmapsto x / 1
+        \end{aligned}
+    \]
+    is a ring morphism.
+\end{proposition}
+
+\begin{proof}
+    Follows immediately from the definition of the $S^{-1} R$ operations in \eqref{prop-ring-quotient-localization-operations}.
+\end{proof}
+
+\begin{proposition}
+    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. If $0 \in S$, then $S^{-1} R$ is the zero ring.
+\end{proposition}
+
+\begin{proof}
+    If $0 \in S$, then any element $x / s \in S^{-1} R$, is equal to $0 / 1$. Therefore, $S^{-1} R$ is the trivial ring.
+\end{proof}
+
 
 \end{document}

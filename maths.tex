@@ -765,6 +765,10 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
     By contrapositive of the property of the definition of integral domain \eqref{def-integral-domain}.
 \end{proof}
 
+\begin{remark}
+    In particular, any nonzero subring of a integral domain is a integral domain.
+\end{remark}
+
 \begin{proposition} \label{prop-integral-domain-eq}
     A commutative non zero ring is an \emph{integral domain} if, and only if, it is with no nonzero zero divisors.
 \end{proposition}
@@ -812,7 +816,9 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{proposition}
 
 \begin{proof}
-    Omitted.
+    Let $x \in R$ be nilpotent and $I \subset R$ be a prime ideal. The image of $x$ in $R / I$ is also nilpotent. However $R / I$ is a integral domain, hence the image of $x$ is zero, which implies that $x \in I$.
+    
+    The converse way is omitted.
 \end{proof}
 
 \subsubsection{Maximal ideals}

@@ -445,7 +445,7 @@
 \end{remark}
 
 \begin{definition} \label{def-group-canoncial-surjection}
-    Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh \mid h \in H \rbrace$, called the \emph{left coset} of $g$ modulo $H$. The left cosets constitute a partition of $G$; The set of left cosets modulo $H$ is called the \emph{left quotient} of $G$ by $H$, denoted by $G / H$; the map
+    Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh \mid h \in H \rbrace$, called the \emph{left coset} of $g$ modulo $H$. The left cosets constitute a partition of $G$; the set of left cosets modulo $H$ is called the \emph{left quotient} of $G$ by $H$, denoted by $G / H$; the map
     \[
         \begin{aligned}
             \pi \colon G &\longrightarrow G / H \\
@@ -523,7 +523,7 @@
 \end{remark}
 
 \begin{remark} \label{rem-ring-trivial-ring}
-    In a ring $A$, we have $0 = 1$ if, and only if, $A = \lbrace 0 \rbrace$.
+    In a ring $A$, we have $0 = 1$ if and only if, $A = \lbrace 0 \rbrace$.
 \end{remark}
 
 \begin{definition} \label{def-ring-invertible}
@@ -595,7 +595,7 @@
 \end{definition}
 
 \begin{proposition} \label{prop-ring-morphism-inj-criterion}
-    A morphism of rings $f$ is injective if, and only if, $\text{Ker}(f) = \lbrace 0 \rbrace$.
+    A morphism of rings $f$ is injective if and only if, $\text{Ker}(f) = \lbrace 0 \rbrace$.
 \end{proposition}
 
 \begin{proof}
@@ -657,7 +657,7 @@
     \[
         \forall a, b \in A, \; \pi(a) \cdot \pi(b) = \pi(ab)
     \]
-    To show that this definition is correct, it requires to show that $\pi(ab) = \pi(a^{\prime} b^{\prime})$ for all $(a, b), (a^{\prime}, b^{\prime}) \in A^2$ such that $\pi(a) = \pi(a^{\prime})$ and $\pi(b) = \pi(b^{\prime})$. However, $\pi(x) = \pi(y)$ if, and only if, $x - y \in I$. Hence, it suffices to show that $ab - a^{\prime} b^{\prime} \in I$. To see it: $ab - a^{\prime} b^{\prime} = a(b - b^{\prime}) + (a - a^{\prime})b^{\prime} \in I$. To finish, the surjectivity of $\pi$ implies that this operation is well-defined on all $A / I$.
+    To show that this definition is correct, it requires to show that $\pi(ab) = \pi(a^{\prime} b^{\prime})$ for all $(a, b), (a^{\prime}, b^{\prime}) \in A^2$ such that $\pi(a) = \pi(a^{\prime})$ and $\pi(b) = \pi(b^{\prime})$. However, $\pi(x) = \pi(y)$ if and only if, $x - y \in I$. Hence, it suffices to show that $ab - a^{\prime} b^{\prime} \in I$. To see it: $ab - a^{\prime} b^{\prime} = a(b - b^{\prime}) + (a - a^{\prime})b^{\prime} \in I$. To finish, the surjectivity of $\pi$ implies that this operation is well-defined on all $A / I$.
 \end{proof}
 
 \begin{definition} \label{def-ring-quotient}
@@ -733,7 +733,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{definition}
 
 \begin{proposition} \label{prop-ring-lr-zero-div-eq}
-    An element $a$ of a ring $A$ is a left zero divisor (resp. right zero divisor) if, and only if, $b \mapsto ab$ (resp. $b \mapsto ba$) is not injective.
+    An element $a$ of a ring $A$ is a left zero divisor (resp. right zero divisor) if and only if, $b \mapsto ab$ (resp. $b \mapsto ba$) is not injective.
 \end{proposition}
 
 \begin{proof}
@@ -745,7 +745,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{definition}
 
 \begin{remark} \label{rem-ring-commutative-zero-div}
-    In a commutative ring, any element is a left zero divisor if, and only if, it is a right zero divisor.
+    In a commutative ring, any element is a left zero divisor if and only if, it is a right zero divisor.
 \end{remark}
 
 \subsubsection{Integral domain}
@@ -770,7 +770,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{remark}
 
 \begin{proposition} \label{prop-integral-domain-eq}
-    A commutative non zero ring is an \emph{integral domain} if, and only if, it has no nonzero zero divisors.
+    A commutative non zero ring is an \emph{integral domain} if and only if, it has no nonzero zero divisors.
 \end{proposition}
 
 \begin{proof}
@@ -801,7 +801,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{definition}
 
 \begin{proposition} \label{prop-ring-prime-ideal-eq}
-    $I \subset R$ is a prime ideal if, and only if, $I \neq R$ and for all $a, b \in R$:
+    $I \subset R$ is a prime ideal if and only if, $I \neq R$ and for all $a, b \in R$:
     \[
         ab \in I \implies a \in I \; \text{or} \; b \in I.
     \]
@@ -828,7 +828,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{definition}
 
 \begin{proposition} \label{prop-ring-maximal-ideal-eq}
-    $I \subset R$ is a maximal ideal if, and only if, $I \neq R$ and for any ideal $J$:
+    $I \subset R$ is a maximal ideal if and only if, $I \neq R$ and for any ideal $J$:
     \[
         I \subset J \implies J = I \; \text{or} \; J = R.
     \]
@@ -838,7 +838,8 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
     Omitted.
 \end{proof}
 
-\subsection{Localization}
+\subsection{Localization, Field of fractions}
+\subsubsection{Localization}
 
 \begin{definition} \label{def-ring-multiplicative-subset}
     A subset $S$ of a ring $A$ is a \emph{multiplicative subset} if it contains $1_A$ and is closed under multiplication:
@@ -892,11 +893,19 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{proof}
 
 \begin{remark}
-    It is clear that the quotient ring $S^{-1} R$, as in \eqref{prop-ring-quotient-localization-ring}, is a nonzero commutative ring.
+    It is clear that the quotient ring $S^{-1} R$, as in \eqref{prop-ring-quotient-localization-ring}, is a commutative ring.
 \end{remark}
 
+\begin{proposition} \label{prop-ring-localization-zero}
+    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. If $0 \in S$, then $S^{-1} R$ is the zero ring.
+\end{proposition}
+
+\begin{proof}
+    If $0 \in S$, then any element $x / s \in S^{-1} R$, is equal to $0 / 1$. Therefore, $S^{-1} R$ is the trivial ring.
+\end{proof}
+
 \begin{proposition} \label{prop-ring-localization-morphism}
-    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. Then the following map: 
+    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. Then the following canonical map: 
     \[
         \begin{aligned}
             \eta \colon R &\longrightarrow S^{-1} R \\
@@ -910,13 +919,41 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
     Follows immediately from the definition of the $S^{-1} R$ operations in \eqref{prop-ring-quotient-localization-operations}.
 \end{proof}
 
-\begin{proposition} \label{prop-ring-localization-zero}
-    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. If $0 \in S$, then $S^{-1} R$ is the zero ring.
+\begin{proposition} \label{prop-ring-localization-morphism-injectivity}
+    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. Then the morphism $\eta$, defined as in \eqref{prop-ring-localization-morphism}, is injective if and only if, $S$ does not contain a zero divisor.
 \end{proposition}
 
 \begin{proof}
-    If $0 \in S$, then any element $x / s \in S^{-1} R$, is equal to $0 / 1$. Therefore, $S^{-1} R$ is the trivial ring.
+    Induced by the fact that $\text{Ker} (\eta) = \lbrace x \in R \mid \exists \sigma \in S, \; \sigma x = 0 \rbrace$.
 \end{proof}
 
+\begin{proposition} \label{prop-ring-localization-eq-condition}
+    Let $R$ be a nonzero commutative ring and $S \subset R$ a multiplicative subset. If $S$ does not contain a zero divisor, then:
+    \[
+        \frac{x}{s} = \frac{x^{\prime}}{s^{\prime}} \iff s^{\prime} x = s x^{\prime}
+    \]
+\end{proposition}
+
+\begin{proof}
+    If $x / s = x^{\prime} / s^{\prime}$, then there exists $\sigma \in S$ such that $\sigma (x s^{\prime} - x^{\prime} s) = 0$. However, $\sigma$ is not a zero divisor, hence $x s^{\prime} - x^{\prime} s = 0$. 
+\end{proof}
+
+\subsubsection{Field of fractions}
+
+\begin{definition} \label{def-fraction-field}
+    If $R$ is an integral domain, then we denote $\text{Frac} R = (R \setminus \lbrace 0 \rbrace)^{-1} R$, called the \emph{field of fractions} of $R$.
+\end{definition}
+
+\begin{proposition} \label{prop-ring-fraction-field}
+    If $R$ is an integral domain, then the field of fractions $\text{Frac} R$ is a field.
+\end{proposition}
+
+\begin{proof}
+    $R \setminus \lbrace 0 \rbrace$ does not contain a zero divisor. By \eqref{prop-ring-localization-morphism-injectivity}, the canonical morphism $R \to \text{Frac} R$ is injective. Hence, $\text{Frac} R$ is a nonzero ring. Let $x / s \in \text{Frac} R$ be a nonzero element ($x \neq 0$ by \eqref{prop-ring-localization-eq-condition}), then its inverse is $s / x$. To show this, it suffices to verify that its product is equal to $1_{\text{Frac} R}$.
+\end{proof}
+
+\begin{remark}
+    $R$ is identified with a subring of $\text{Frac} R$.
+\end{remark}
 
 \end{document}

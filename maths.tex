@@ -53,11 +53,15 @@
 \end{theorem}
 
 \begin{proof}
-    If $e, e^{\prime} \in M$ are identity elements for $\ast$, then $e = e \ast e^{\prime} = e^{\prime}$.
+    If $e, e^{\prime} \in M$ are identity elements, then $e = e \ast e^{\prime} = e^{\prime}$.
 \end{proof}
 
+\begin{notation}
+    For a unital magma $(M, \ast)$, we will denote its identity element by $e_M$.
+\end{notation}
+
 \begin{definition} \label{def-magma-invertible-element}
-    Let a unital magma $(M, \ast)$ with identity element $e \in M$. An element $a \in M$ is said to be \emph{invertible} if there exists $b \in M$ such that $a \ast b = b \ast a = e$. $b$ is then called an inverse of $a$.
+    Let a unital magma $(M, \ast)$. An element $a \in M$ is said to be \emph{invertible} if there exists $b \in M$ such that $a \ast b = b \ast a = e_M$. $b$ is then called an inverse of $a$.
 \end{definition}
 
 \subsubsection{Submagmas}
@@ -89,7 +93,7 @@
     Let $M$ and $N$ be two magmas.
     \begin{enumerate}[label=(\roman*)]
         \item If $M$ and $N$ are associative (resp. commutative), then $M \times N$ is associative (resp. commutative),
-        \item If $M$ and $N$ have identity elements, then $M \times N$ has an identity element.
+        \item If $M$ and $N$ are unital, then $M \times N$ is unital.
     \end{enumerate}
 \end{proposition}
 
@@ -98,7 +102,7 @@
 \end{proof}
 
 \begin{proposition} \label{prop-magma-product-reversibility}
-    Let $M$ and $N$ be two magmas with identity elements. If $a \in M$ and $b \in N$ are invertible, then $(a, b) \in M \times N$ is invertible.
+    Let $M$ and $N$ be two unital magmas. If $a \in M$ and $b \in N$ are invertible, then $(a, b) \in M \times N$ is invertible.
 \end{proposition}
 
 \begin{proof}
@@ -163,7 +167,7 @@
 \subsubsection{Monoids and properties}
 
 \begin{definition} \label{def-monoid}
-    A \emph{monoid} is an associative magma with an identity element.
+    A \emph{monoid} is an associative unital magma.
 \end{definition}
 
 \begin{theorem} \label{thm-monoid-inverse-uniqueness}
@@ -180,7 +184,7 @@
 \begin{notation} \label{not-monoid-exponent}
     If $(M, \ast)$ is a monoid, then for all $a \in M$, we denote:
     \[
-        a^0 = e \quad \text{and} \quad a^n = \underbrace{a \ast \dots \ast a}_{n \text{ times}} \quad (\text{for } n \geq 1).
+        a^0 = e_M \quad \text{and} \quad a^n = \underbrace{a \ast \dots \ast a}_{n \text{ times}} \quad (\text{for } n \geq 1).
     \]
 \end{notation}
 
@@ -198,7 +202,7 @@
     \begin{enumerate}[label=(\roman*)]
         \item $x = (a^{-1} \ast a) \ast x = a^{-1} \ast (a \ast x) = a^{-1} \ast (a \ast y) = (a^{-1} \ast a) \ast y = y$.
         \item Direct consequence of the invertible element definition.
-        \item $(x \ast y) \ast (y^{-1} \ast x^{-1}) = x \ast y \ast y^{-1} \ast x^{-1} = e$, and similarly for the other way.
+        \item $(x \ast y) \ast (y^{-1} \ast x^{-1}) = x \ast y \ast y^{-1} \ast x^{-1} = e_M$, and similarly for the other way.
         \item It suffices to combine the two preceding properties in a proof by induction.
     \end{enumerate}
 \end{proof}
@@ -346,11 +350,15 @@
 \end{definition}
 
 \begin{proposition} \label{prop-group-morphism-reversibility}
-    Let $G, G^{\prime}$ be two groups and $f \colon G \to G^{\prime}$ be a group morphism. Then $f(e_{G}) = e_{G^{\prime}}$ and for all $x \in G, \; f(x^{-1}) = f(x)^{-1}$.
+    Let $G, G^{\prime}$ be two groups and $f \colon G \to G^{\prime}$ be a group morphism. Then $f(e_{G}) = e_{G^{\prime}}$ and for all $x \in G, \; f(x)^{-1} = f(x^{-1})$.
 \end{proposition}
 
 \begin{proof}
-    Omitted.
+    By the property of group morphism, we have
+    \[
+        f(e_{G}) = f(e_{G} e_{G}) = f(e_{G}) f(e_{G})
+    \]
+    that implies $f(e_{G}) = e_{G^\prime}$ after multiplication by $f(e_{G})^{-1}$. Equality $f(x)^{-1} = f(x^{-1})$ follows from the property we have just shown.
 \end{proof}
 
 \begin{proposition} \label{prop-group-morphism-composition}

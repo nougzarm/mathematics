@@ -182,14 +182,14 @@
 \end{proof}
 
 \begin{notation} \label{not-monoid-exponent}
-    If $(M, \ast)$ is a monoid, then for all $a \in M$, we denote:
+    Let $(M, \ast)$ be a monoid. For all $a \in M$, we denote:
     \[
         a^0 = e_M \quad \text{and} \quad a^n = \underbrace{a \ast \dots \ast a}_{n \text{ times}} \quad (\text{for } n \geq 1).
     \]
 \end{notation}
 
 \begin{proposition}
-    Given a monoid $(M, \ast)$, and $a, x, y \in M$,
+    Given a monoid $(M, \ast)$ and $a, x, y \in M$,
     \begin{enumerate}[label=(\roman*)]
         \item If $a \ast x = a \ast y$ and $a$ is invertible, then $x = y$,
         \item If $x$ is invertible, then $x^{-1}$ is invertible and $(x^{-1})^{-1} = x$.
@@ -262,10 +262,11 @@
 \end{proposition}
 
 \begin{proof}
+    We have:
     \[
         f(a) \cdot f(a^{-1}) = f(a \ast a^{-1}) = f(e_{M}) = e_{N}.
     \]
-    So, $f(a)$ is invertible, and its inverse is $f(a^{-1})$.
+    Similarly $f(a^{-1}) \cdot f(a) = e_{N}$. Hence, $f(a)$ is invertible and its inverse is $f(a^{-1})$.
 \end{proof}
 
 \begin{definition} \label{def-monoid-isomorphism}
@@ -273,7 +274,7 @@
 \end{definition}
 
 \begin{theorem} \label{thm-monoid-isomorphism-inverse}
-    If $f$ is a monoid isomorphism, then the inverse $f^{-1}$ is a monoid morphism. Moreover, it is a monoid isomorphism.
+    If $f$ is a monoid isomorphism, then the inverse map $f^{-1}$ is a monoid morphism. Moreover, it is a monoid isomorphism.
 \end{theorem}
 
 \begin{proof}
@@ -283,7 +284,7 @@
 \subsubsection{Groups}
 
 \begin{definition} \label{def-group}
-    A \emph{group} is a monoid such that every element is invertible.
+    A \emph{group} is a monoid such that any element is invertible.
 \end{definition}
 
 \begin{definition} \label{def-group-order}
@@ -291,7 +292,7 @@
 \end{definition}
 
 \begin{definition} \label{def-group-commutative}
-    A group is \emph{commutative} or \emph{abelian} if the underlying magma is commutative.
+    A group is \emph{commutative} (or \emph{abelian}) if the underlying magma is commutative.
 \end{definition}
 
 \begin{proposition} \label{prop-group-product}
@@ -306,7 +307,10 @@
 \subsubsection{Subgroups}
 
 \begin{definition} \label{def-subgroup}
-    Let $(G, \ast)$ be a group. A subset $H \subseteq G$ is said to be a \emph{subgroup} of $G$ if it is a submonoid and is stable by inversion: $\forall x \in H, \; x^{-1} \in H$.
+    Let $(G, \ast)$ be a group. A subset $H \subseteq G$ is a \emph{subgroup} of $G$ if it is a submonoid and is stable by inversion: 
+    $$
+        \forall x \in H, \; x^{-1} \in H.
+    $$
 \end{definition}
 
 \begin{remark} \label{rem-group-canoncial-subgroup}
@@ -423,7 +427,7 @@
 \end{definition}
 
 \begin{notation}
-    If $f \colon G \to G^{\prime}$ is an isomorphism, then we say that $G$ is isomorphic to $G^{\prime}$. If $G = G^{\prime}$, we say that $f$ is an automorphism.
+    If $f \colon G \to G^{\prime}$ is an isomorphism, then we say that $G$ is \emph{isomorphic} to $G^{\prime}$. If $G = G^{\prime}$, we say that $f$ is an \emph{automorphism}.
 \end{notation}
 
 \begin{theorem} \label{thm-group-isomorphism-composition}
@@ -431,7 +435,7 @@
 \end{theorem}
 
 \begin{proof}
-    Obvious.
+    The composition of two bijective maps is a bijective map.
 \end{proof}
 
 \begin{theorem} \label{thm-group-isomorphism-inverse}
@@ -479,7 +483,7 @@
 \end{definition}
 
 \begin{proposition}
-    Let $G$ be a group and $H$ a subgroup of $G$. Then we have
+    Let $G$ be a group and $H$ a subgroup of $G$. Then we have:
     \[
         \lvert G \rvert = [G : H] \lvert H \rvert
     \]

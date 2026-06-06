@@ -202,7 +202,7 @@
     \begin{enumerate}[label=(\roman*)]
         \item $x = (a^{-1} \ast a) \ast x = a^{-1} \ast (a \ast x) = a^{-1} \ast (a \ast y) = (a^{-1} \ast a) \ast y = y$.
         \item Direct consequence of the invertible element definition.
-        \item $(x \ast y) \ast (y^{-1} \ast x^{-1}) = x \ast y \ast y^{-1} \ast x^{-1} = e_M$, and similarly for the other way.
+        \item $(x \ast y) \ast (y^{-1} \ast x^{-1}) = x \ast y \ast y^{-1} \ast x^{-1} = e_M$, and similarly for the converse.
         \item The result follows by combining the two preceding properties using induction.
     \end{enumerate}
 \end{proof}
@@ -622,7 +622,7 @@
 \end{proposition}
 
 \begin{proof}
-    Direct consequence of \eqref{prop-ring-morphism-inj-criterion}.
+    Direct consequence of \eqref{prop-group-morphism-inj-criterion}.
 \end{proof}
 
 \begin{definition} \label{def-ring-morphism-image}
@@ -838,7 +838,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{proof}
 
 \begin{remark}
-    In particular, any nonzero subring of a integral domain is an integral domain.
+    In particular, any nonzero subring of an integral domain is an integral domain.
 \end{remark}
 
 \begin{proposition} \label{prop-integral-domain-eq}
@@ -1061,7 +1061,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \begin{proposition} \label{prop-ring-divisibility-eq}
     Let $R$ be a commutative ring and $a, b \in R$. We have the following equivalences
     \[
-        a \mid b \iff b \in (a) \iff (b) \subset (a)
+        a \mid b \iff b \in (a) \iff (b) \subset (a).
     \]
 \end{proposition}
 

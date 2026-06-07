@@ -1074,9 +1074,12 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{definition}
 
 \begin{proposition} \label{prop-ring-associated-elements-eq}
-    Let $R$ be a commutative ring. Two elements $a, b \in R$ are associates if and only if there exists $u \in R^{\ast}$ such that $b = u a$.
+    Let $R$ be an integral domain. Two elements $a, b \in R$ are associates if and only if there exists $u \in R^{\ast}$ such that $b = u a$.
 \end{proposition}
 
-
+\begin{proof}
+    $a$ divides $b$, then there exists $u \in R$ such that $b = u a$. Conversely, $b$ divides $a$, so there exists $v \in R$ such that $a = v b$. We show that $u$ is invertible: 
+    $b = u a = u (v b) = (u v) b$, and $R$ is an integral domain, therefore $u v = 1$. Similarly $a = v b = v (u a) = (v u) a$, therefore $v u = 1$.
+\end{proof}
 
 \end{document}

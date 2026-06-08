@@ -388,7 +388,7 @@
 \begin{definition} \label{def-group-morphism-kernel}
     The \emph{kernel} of a group morphism $f \colon G \to G^{\prime}$ is defined by
     \[
-        \text{Ker}(f) = \lbrace a \in G \mid f(a) = e_{G^{\prime}} \rbrace
+        \Ker (f) = \lbrace a \in G \mid f(a) = e_{G^{\prime}} \rbrace
     \]
 \end{definition}
 
@@ -618,7 +618,7 @@
 \end{definition}
 
 \begin{proposition} \label{prop-ring-morphism-inj-criterion}
-    A morphism of rings $f$ is injective if and only if, $\text{Ker}(f) = \lbrace 0 \rbrace$.
+    A morphism of rings $f$ is injective if and only if, $\Ker (f) = \lbrace 0 \rbrace$.
 \end{proposition}
 
 \begin{proof}
@@ -660,7 +660,7 @@
 \end{proposition}
 
 \begin{proof}
-    By \eqref{prop-group-morphism-kernel-subgroup} we have that it is a subgroup of $(A, +)$. Moreover, for all $a \in A$ and $b \in \text{Ker}(f)$, we have $f(ab) = f(a) f(b) = 0$ (resp. $f(ba) = 0$), hence $ab$ (resp. $ba$) is in $\text{Ker}(f)$.
+    By \eqref{prop-group-morphism-kernel-subgroup} we have that it is a subgroup of $(A, +)$. Moreover, for all $a \in A$ and $b \in \Ker (f)$, we have $f(ab) = f(a) f(b) = 0$ (resp. $f(ba) = 0$), hence $ab$ (resp. $ba$) is in $\Ker (f)$.
 \end{proof}
 
 \begin{proposition} \label{prop-ring-ideal-intersection}
@@ -741,7 +741,7 @@
 \begin{theorem} \label{thm-ring-morphism-quotient}
     Let $f \colon A \to B$ be a ring morphism, an ideal $I \subset A$, and the canonical surjection $\pi \colon A \to A / I$. Then, the following assertions are equivalent:
     \begin{enumerate}[label=(\roman*)]
-        \item $I \subset \text{Ker} \; f$,
+        \item $I \subset \Ker f$,
         \item There exists a ring morphism $g \colon A / I \to B$, such that $g \circ \pi = f$.
     \end{enumerate}
 \end{theorem}
@@ -753,13 +753,13 @@
 \begin{corollary} \label{cor-ring-morphism-quotient}
 Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
     \[
-        \tilde{f} \colon A / \text{Ker} f \longrightarrow \text{Im} f
+        \tilde{f} \colon A / \Ker f \longrightarrow \Image f
     \]
     such that the following diagram is commutative:
     \[
         \begin{tikzcd}
             A \arrow[r, "f"] \arrow[d, "\pi"'] & B \\
-            A / \text{Ker} f \arrow[r, "\tilde{f}"'] & \text{Im} f \arrow[u, hook]
+            A / \Ker f \arrow[r, "\tilde{f}"'] & \Image f \arrow[u, hook]
         \end{tikzcd}
     \]
 \end{corollary}
@@ -775,7 +775,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{definition}
 
 \begin{definition} \label{def-ring-nilpotent-subset}
-    Let $A$ be a ring. We denote $\text{Nil}(A)$, the set of nilpotent elements of $A$.
+    Let $A$ be a ring. We denote $\Nil (A)$, the set of nilpotent elements of $A$.
 \end{definition}
 
 \begin{definition} \label{def-ring-nilpotency-index}
@@ -790,7 +790,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{lemma}
 
 \begin{proposition} \label{prop-ring-nilpotent-ideal}
-    If $R$ is a commutative ring, then $\text{Nil}(R)$ is an ideal of $R$.
+    If $R$ is a commutative ring, then $\Nil (R)$ is an ideal of $R$.
 \end{proposition}
 
 \begin{proof}
@@ -884,7 +884,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{proof}
 
 \begin{proposition} \label{prop-ring-prime-ideals-intersection}
-    Let $R$ be a commutative ring. The intersection of prime ideals of $R$ is equal to the ideal $\text{Nil}(R)$.
+    Let $R$ be a commutative ring. The intersection of prime ideals of $R$ is equal to the ideal $\Nil (R)$.
 \end{proposition}
 
 \begin{proof}
@@ -996,7 +996,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{proposition}
 
 \begin{proof}
-    Induced by the fact that $\text{Ker} (\eta) = \lbrace x \in R \mid \exists \sigma \in S, \; \sigma x = 0 \rbrace$.
+    Induced by the fact that $\Ker (\eta) = \lbrace x \in R \mid \exists \sigma \in S, \; \sigma x = 0 \rbrace$.
 \end{proof}
 
 \begin{proposition} \label{prop-ring-localization-eq-condition}
@@ -1013,23 +1013,23 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \subsubsection{Field of fractions}
 
 \begin{definition} \label{def-fraction-field}
-    If $R$ is an integral domain, then we denote $\text{Frac} R = (R \setminus \lbrace 0 \rbrace)^{-1} R$, called the \emph{field of fractions} of $R$.
+    If $R$ is an integral domain, then we denote $\Frac R = (R \setminus \lbrace 0 \rbrace)^{-1} R$, called the \emph{field of fractions} of $R$.
 \end{definition}
 
 \begin{proposition} \label{prop-ring-fraction-field}
-    If $R$ is an integral domain, then the field of fractions $\text{Frac} R$ is a field.
+    If $R$ is an integral domain, then the field of fractions $\Frac R$ is a field.
 \end{proposition}
 
 \begin{proof}
-    $R \setminus \lbrace 0 \rbrace$ does not contain a zero divisor. By \eqref{prop-ring-localization-morphism-injectivity}, the canonical morphism $R \to \text{Frac} R$ is injective. Hence, $\text{Frac} R$ is a nonzero ring. Let $x / s \in \text{Frac} R$ be a nonzero element ($x \neq 0$ by \eqref{prop-ring-localization-eq-condition}), then its inverse is $s / x$. To show this, it suffices to verify that its product is equal to $1_{\text{Frac} R}$.
+    $R \setminus \lbrace 0 \rbrace$ does not contain a zero divisor. By \eqref{prop-ring-localization-morphism-injectivity}, the canonical morphism $R \to \Frac R$ is injective. Hence, $\Frac R$ is a nonzero ring. Let $x / s \in \Frac R$ be a nonzero element ($x \neq 0$ by \eqref{prop-ring-localization-eq-condition}), then its inverse is $s / x$. To show this, it suffices to verify that its product is equal to $1_{\Frac R}$.
 \end{proof}
 
 \begin{remark}
-    $R$ is identified with a subring of $\text{Frac} R$.
+    $R$ is identified with a subring of $\Frac R$.
 \end{remark}
 
 \begin{proposition}
-    Let $R$ be an integral domain and $S \subset R$ a multiplicative subset. If $S$ does not contain a zero divisor, then $S^{-1} R$ is identified with a subring of $\text{Frac} R$.
+    Let $R$ be an integral domain and $S \subset R$ a multiplicative subset. If $S$ does not contain a zero divisor, then $S^{-1} R$ is identified with a subring of $\Frac R$.
 \end{proposition}
 
 \begin{proof}
@@ -1037,7 +1037,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{proof}
 
 \begin{proposition}
-    Let $R$ be an integral domain. For any field $K$ and injective ring morphism $j \colon R \to K$, there exists a unique ring morphism $\text{Frac} R \to K$ which extends $j$.
+    Let $R$ be an integral domain. For any field $K$ and injective ring morphism $j \colon R \to K$, there exists a unique ring morphism $\Frac R \to K$ which extends $j$.
 \end{proposition}
 
 \begin{proof}

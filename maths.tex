@@ -213,7 +213,7 @@
     Let $(M, \ast)$ be a monoid. A subset $N \subset M$ is a \emph{submonoid} of $(M, \ast)$ if it is a submagma of $M$ and contains the identity element.
 \end{definition}
 
-\begin{remark} \label{rem-monoid-canoncial-submonoid}
+\begin{remark} \label{rem-monoid-canonical-submonoid}
     The submonoid $N$ induces the canonical monoid $(N, \ast_{\vert N \times N})$.
 \end{remark}
 
@@ -313,7 +313,7 @@
     $$
 \end{definition}
 
-\begin{remark} \label{rem-group-canoncial-subgroup}
+\begin{remark} \label{rem-group-canonical-subgroup}
     The subgroup $H$ induces the canonical group $(H, \ast_{\vert H \times H})$.
 \end{remark}
 
@@ -325,7 +325,8 @@
 \end{proposition}
 
 \begin{proof}
-    The direct way is a consequence of the definition of subgroups.\\
+    The direct way is a consequence of the definition of subgroups.
+
     Conversely, suppose $H \neq \emptyset$ and satisfies the given criterion. Since $H$ is non-empty, there exists some $x \in H$. Applying the criterion to $x$ and $x$ yields $x \ast x^{-1} = e \in H$. Now, for any $y \in H$, applying the criterion to $e$ and $y$ gives $e \ast y^{-1} = y^{-1} \in H$. Finally, for any $x, y \in H$, we know $y^{-1} \in H$, so applying the criterion to $x$ and $y^{-1}$ gives $x \ast (y^{-1})^{-1} = x \ast y \in H$.
 \end{proof}
 
@@ -467,7 +468,7 @@
     If $G$ is an abelian group, then any subgroup of $G$ is a normal subgroup.
 \end{remark}
 
-\begin{definition} \label{def-group-canoncial-surjection}
+\begin{definition} \label{def-group-canonical-surjection}
     Let $G$ be a group and $H$ a subgroup of $G$. For $g \in G$, we denote the subset $gH = \lbrace gh \mid h \in H \rbrace$, called the \emph{left coset} of $g$ modulo $H$. The left cosets constitute a partition of $G$; the set of left cosets modulo $H$ is called the \emph{left quotient} of $G$ by $H$, denoted by $G / H$; the map
     \[
         \begin{aligned}

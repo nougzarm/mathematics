@@ -101,7 +101,7 @@
     Omitted.
 \end{proof}
 
-\begin{proposition} \label{prop-magma-product-reversibility}
+\begin{proposition} \label{prop-magma-product-invertibility}
     Let $M$ and $N$ be two unital magmas. If $a \in M$ and $b \in N$ are invertible, then $(a, b) \in M \times N$ is invertible.
 \end{proposition}
 
@@ -110,7 +110,7 @@
 \end{proof}
 
 \begin{remark}
-    The previous construction can be extended to any product of magmas. The propositions \ref{prop-magma-product-props} and \ref{prop-magma-product-reversibility} then remain true.
+    The previous construction can be extended to any product of magmas. The propositions \ref{prop-magma-product-props} and \ref{prop-magma-product-invertibility} then remain true.
 \end{remark}
 
 \subsubsection{Magma morphisms}
@@ -300,7 +300,7 @@
 \end{proposition}
 
 \begin{proof}
-    It is induced by \ref{prop-monoid-product} and \ref{prop-magma-product-reversibility}.
+    It is induced by \ref{prop-monoid-product} and \ref{prop-magma-product-invertibility}.
 \end{proof}
 
 \subsection{Subgroups, group morphisms}
@@ -748,11 +748,23 @@
 \end{theorem}
 
 \begin{proof}
-    Omitted.
+    If $I \subset \Ker f$: we construct the map $g \colon A / I \longrightarrow B$ by setting $g(\pi(x)) = f(x)$ for all $x \in A$. 
+        
+    First, we must ensure that $g$ is well-defined. Let $x, x^{\prime} \in A$ such that $\pi(x) = \pi(x^{\prime})$. This equality implies that $x - x^{\prime} \in I$, therefore $x - x^{\prime} \in \Ker f$, meaning that $f(x - x^{\prime}) = f(x) - f(x^{\prime}) = 0_B$, hence $f(x) = f(x^{\prime})$. Thus, the value of $g$ does not depend on the choice of representative. It is easily proven that $g$ is a ring morphism.
+
+    Conversely, assume there exists a ring morphism $g \colon A / I \longrightarrow B$ such that $g \circ \pi = f$. Let $x \in I$. By definition of the canonical surjection, we have $\pi(x) = 0$. Evaluating $f$ at $x$ yields:
+    \[
+        f(x) = (g \circ \pi)(x) = g(\pi(x)) = g(0) = 0.
+    \]
+    which proves that $I \subset \Ker f$.
 \end{proof}
 
+\begin{remark}
+    A morphism $g$ as in \ref{thm-ring-morphism-quotient} is unique, due to the surjectivity of $\pi$
+\end{remark}
+
 \begin{corollary} \label{cor-ring-morphism-quotient}
-Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
+Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphism:
     \[
         \tilde{f} \colon A / \Ker f \longrightarrow \Image f
     \]
@@ -766,7 +778,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{corollary}
 
 \begin{proof}
-    Omitted.
+    Direct consequence of \ref{thm-ring-morphism-quotient}.
 \end{proof}
 
 \subsection{Nilpotency}
@@ -799,7 +811,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
     \[
         \begin{aligned}
             (x - y)^{n_x + n_y} &= \sum\limits_{k = 0}^{n_x + n_y} \binom{n_x + n_y}{k} x^k (-y)^{n_x + n_y - k} \\
-                &= \sum\limits_{k = 0}^{n_x} \binom{n_x + n_y}{k} x^k (-y)^{n_x + n_y - k} + \sum\limits_{k = n_x + 1}^{n_x + n_y} \binom{n_x + n_y}{k} x^k (-y)^{n_x + n_y - k}
+                &= \sum\limits_{k = 0}^{n_x} \binom{n_x + n_y}{k} x^k (-y)^{n_x + n_y - k} + \sum\limits_{k = n_x + 1}^{n_x + n_y} \binom{n_x + n_y}{k} x^k (-y)^{n_x + n_y - k}.
         \end{aligned}
     \]
     Since $(-y)^{n_x + n_y - k} = \pm y^{n_x + n_y - k} = 0$ for all $k \in \lbrace 0, \dots, n_x \rbrace$ and $x^k = 0$ for all $k \in \lbrace n_x + 1, \dots, n_x + n_y \rbrace$, we have $(x - y)^{n_x + n_y} = 0$. Therefore $x - y \in \Nil (R)$ and $\Nil (R)$ is an additive subgroup of $R$ by \ref{prop-subgroup-criterion}.
@@ -1105,7 +1117,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{definition}
 
 \begin{proposition} \label{prop-Noetherian-ring-eq}
-    $A$ is a neotherien ring if and only if every ideal of $A$ is finitely generated.
+    $A$ is a Noetherian ring if and only if every ideal of $A$ is finitely generated.
 \end{proposition}
 
 \begin{proof}

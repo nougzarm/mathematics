@@ -1100,16 +1100,16 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 
 \subsection{Noetherian rings}
 
-\begin{definition} \label{def-noetherian-ring}
-    A ring is \emph{noetherian} if every increasing sequence (for inclusion) of its ideals $(I_n)_{n \in \mathbb{N}}$ is stationary.
+\begin{definition} \label{def-Noetherian-ring}
+    A ring is \emph{Noetherian} if every increasing sequence (for inclusion) of its ideals $(I_n)_{n \in \mathbb{N}}$ is stationary.
 \end{definition}
 
-\begin{proposition} \label{prop-noetherian-ring-eq}
+\begin{proposition} \label{prop-Noetherian-ring-eq}
     $A$ is a neotherien ring if and only if every ideal of $A$ is finitely generated.
 \end{proposition}
 
 \begin{proof}
-    If there exists an ideal $I \subset A$ not finitely generated: we can construct a sequence $(x_n)$ such that for all $n$, $x_n \in I$ and $x_{n + 1} \not \in (x_1, \dots, x_n)$. Therefore, if $I_n = (x_1, \dots, x_n)$ then $(I_n)$ is an increasing sequence not stationary and hence $A$ is not noetherian.
+    If there exists an ideal $I \subset A$ not finitely generated: we can construct a sequence $(x_n)$ such that for all $n$, $x_n \in I$ and $x_{n + 1} \not \in (x_1, \dots, x_n)$. Therefore, if $I_n = (x_1, \dots, x_n)$ then $(I_n)$ is an increasing sequence not stationary and hence $A$ is not Noetherian.
 
     If every ideal of $A$ is finitely generated: Let $(I_n)$ be an increasing sequence of ideals and $I = \bigcup I_n$ which is an ideal also. By hypothesis, $I$ is finitely generated and we can write $I = (x_1, \dots, x_m)$. For all $i$, there exists $k_i$ such that $x_i \in I_{k_i}$. Let $N = \max_i k_i$, then we have for all $i$, $x_i \in I_N$. Therefore $I_N = I$.
 \end{proof}

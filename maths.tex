@@ -1059,6 +1059,10 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
     In a commutative ring, the notions of left divisor, right divisor, and two-sided divisor coincide.
 \end{remark}
 
+\begin{remark}
+    An element $x \in R$ of a commutative ring is invertible if and only if $x \mid 1$.
+\end{remark}
+
 \begin{proposition} \label{prop-ring-divisibility-eq}
     Let $R$ be a commutative ring and $a, b \in R$. We have the following equivalences
     \[
@@ -1079,8 +1083,26 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{proposition}
 
 \begin{proof}
-    $a$ divides $b$, then there exists $u \in R$ such that $b = u a$. Conversely, $b$ divides $a$, so there exists $v \in R$ such that $a = v b$. We show that $u$ is invertible: 
+    If $a$ and $b$ are associated: $a$ divides $b$, then there exists $u \in R$ such that $b = u a$. Conversely, $b$ divides $a$, so there exists $v \in R$ such that $a = v b$. We show that $u$ is invertible: 
     $b = u a = u (v b) = (u v) b$, and $R$ is an integral domain, therefore $u v = 1$ by \ref{lem-ring-cancellation-property}. Similarly $a = v b = v (u a) = (v u) a$, therefore $v u = 1$.
+
+    Conversely, if there exists $u \in R^{\ast}$ such that $b = u a$, then $a = b u^{-1}$. Therefore $a \mid b$ and $b \mid a$.
+\end{proof}
+
+\subsection{Noetherian rings}
+
+\begin{definition} \label{def-noetherian-ring}
+    A ring is \emph{noetherian} if every increasing sequence (for inclusion) of its ideals $(I_n)_{n \in \mathbb{N}}$ is stationary.
+\end{definition}
+
+\begin{proposition} \label{prop-noetherian-ring-eq}
+    $A$ is a neotherien ring if and only if every ideal of $A$ is finitely generated.
+\end{proposition}
+
+\begin{proof}
+    If there exists an ideal $I \subset A$ not finitely generated: we can construct a sequence $(x_n)$ such that for all $n$, $x_n \in I$ and $x_{n + 1} \not \in (x_1, \dots, x_n)$. Therefore, if $I_n = (x_1, \dots, x_n)$ then $(I_n)$ is an increasing sequence not stationary and hence $A$ is not noetherian.
+
+    If every ideal of $A$ is finitely generated: Let $(I_n)$ be an increasing sequence of ideals and $I = \bigcup I_n$ which is an ideal also. By hypothesis, $I$ is finitely generated and we can write $I = (x_1, \dots, x_m)$. For all $i$, there exists $k_i$ such that $x_i \in I_{k_i}$. Let $N = \max_i k_i$, then we have for all $i$, $x_i \in I_N$. Therefore $I_N = I$.
 \end{proof}
 
 \end{document}

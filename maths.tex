@@ -795,7 +795,16 @@ Let $f \colon A \to B$ be a ring morphism. There exists a ring isomorphism:
 \end{proposition}
 
 \begin{proof}
-    Omitted.
+    Since $0_R$ is nilpotent, $\Nil (R)$ is non-empty. Let $x, y \in \Nil (R)$ with $n_x$ and $n_y$ their respective nilpotency indices. By \ref{lem-ring-newton-formula}, we have:
+    \[
+        \begin{aligned}
+            (x - y)^{n_x + n_y} &= \sum\limits_{k = 0}^{n_x + n_y} \binom{n_x + n_y}{k} x^k (-y)^{n_x + n_y - k} \\
+                &= \sum\limits_{k = 0}^{n_x} \binom{n_x + n_y}{k} x^k (-y)^{n_x + n_y - k} + \sum\limits_{k = n_x + 1}^{n_x + n_y} \binom{n_x + n_y}{k} x^k (-y)^{n_x + n_y - k}
+        \end{aligned}
+    \]
+    Since $(-y)^{n_x + n_y - k} = \pm y^{n_x + n_y - k} = 0$ for all $k \in \lbrace 0, \dots, n_x \rbrace$ and $x^k = 0$ for all $k \in \lbrace n_x + 1, \dots, n_x + n_y \rbrace$, we have $(x - y)^{n_x + n_y} = 0$. Therefore $x - y \in \Nil (R)$ and $\Nil (R)$ is an additive subgroup of $R$ by \ref{prop-subgroup-criterion}.
+
+    Let $a \in R$ and $x \in \Nil (R)$ with nilpotency index $n_x$. By commutativity we have $(ax)^{n_x} = a^{n_x} x^{n_x} = 0$. Therefore $ax$ is nilpotent. Since $R$ is commutative, $\Nil (R)$ is a two-sided ideal of $R$.
 \end{proof}
 
 \subsection{Zero divisors, Integral domain}

@@ -1161,4 +1161,43 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
     If every ideal of $A$ is finitely generated: Let $(I_n)$ be an increasing sequence of ideals and $I = \bigcup I_n$ which is an ideal also. By hypothesis, $I$ is finitely generated and we can write $I = (x_1, \dots, x_m)$. For all $i$, there exists $k_i$ such that $x_i \in I_{k_i}$. Let $N = \max_i k_i$, then we have for all $i$, $x_i \in I_N$. Therefore $I_N = I$.
 \end{proof}
 
+\newpage
+\section{Modules}
+\subsection{Generalities}
+
+\begin{definition} \label{def-lr-module}
+    Let $A$ be a nonzero ring. A \emph{left $A$-module} (resp. \emph{right $A$-module}) $M$ consists of an abelian group $(M, +)$ and an operation
+    \[
+        \cdot \colon A \times M \to M
+    \]
+    such that for all $a, b \in A$ and $x, y \in M$ we have:
+    \begin{enumerate}[label=(\roman*)]
+        \item $a \cdot (x + y) = a \cdot x + a \cdot y$,
+        \item $(a + b) \cdot x = a \cdot x + b \cdot x$,
+        \item $(ab) \cdot x = a \cdot (b \cdot x)$ (resp. $(ba) \cdot x = a \cdot (b \cdot x)$),
+        \item $1_{A} \cdot x = x$.
+    \end{enumerate}
+    The operation $\cdot$ is called \emph{scalar multiplication}. Often the symbol $\cdot$ is omitted. 
+\end{definition}
+
+\begin{notation}
+    One may write $_{A} M$ (resp. $M_{A}$) to emphasize that $M$ is a left $A$-module (resp. right $A$-module).
+\end{notation}
+
+\begin{remark}
+    For clarity, the scalar multiplication in a right module $M_{A}$ is written on the right: for $a \in A$ and $x \in M$, we denote $x \cdot a$.
+\end{remark}
+
+\begin{remark}
+    If $R$ is a nonzero commutative ring, then the left $R$-modules are exactly the right $R$-modules.
+\end{remark}
+
+\begin{definition} \label{def-module}
+    Let $R$ be a nonzero commutative ring. A \emph{$R$-module} $M$ is a left and right $R$-module.
+\end{definition}
+
+\begin{remark}
+    If $K$ is a field, then the $K$-modules are exactly the $K$-vector spaces.
+\end{remark}
+
 \end{document}

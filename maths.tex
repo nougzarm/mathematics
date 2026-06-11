@@ -1229,8 +1229,16 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
 \end{proposition}
 
 \begin{proof}
-    Assume that $M, N$ are left $A$-modules. By \ref{thm-group-isomorphism-inverse}, $f^{-1} \colon N \to M$ is an additive group morphism. Let $a \in A$ and $y \in N$. By surjectivity of $f$, there exists $x \in M$ such that $y = f(x)$. We have $f^{-1}(a y) = f^{-1}(a f(x)) = f^{-1}(f(a x)) = a x = a f^{-1}(y)$. Hence, $f^{-1}$ is an $A$-module morphism.
+    Assume that $M, N$ are left modules, The right modules case is analogous. By \ref{thm-group-isomorphism-inverse}, $f^{-1} \colon N \to M$ is an additive group morphism. Let $a \in A$ and $y \in N$. By surjectivity of $f$, there exists $x \in M$ such that $y = f(x)$. We have $f^{-1}(a y) = f^{-1}(a f(x)) = f^{-1}(f(a x)) = a x = a f^{-1}(y)$. Hence, $f^{-1}$ is an $A$-module morphism.
 \end{proof}
+
+\begin{definition} \label{def-module-morphism-kernel-image}
+    Let $A$ be a ring and $f$ be a morphism of left (resp. right) $A$-modules.
+     \begin{enumerate}[label=(\roman*)]
+        \item The kernel of $f$, denoted by $\Ker f$, is her kernel as a group morphism.
+        \item The image of $f$, denoted by $\Image f$, is her image as a group morphism.
+    \end{enumerate}
+\end{definition}
 
 \begin{definition} \label{def-submodule}
     Let $A$ be a nonzero ring and $M$ be a left (resp. right) $A$-module. A submodule of $M$ is a additive subgroup $N \subset M$ such that for all $a \in A$ and $x \in N$, we have $ax \in N$ (resp. $xa \in N$).
@@ -1244,6 +1252,20 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
     Let $A$ be a ring, viewed as a left (resp. right) $A$-module. Then the submodules of $A$ are exactly the left (resp. right) ideals.
 \end{remark}
 
+\begin{proposition} \label{prop-module-morphism-kernel-submodule}
+    Let $A$ be a nonzero ring, $M, N$ be two left (resp. right) $A$-modules and $f \colon M \to N$ be an $A$-module morphism. $\Ker f$ is a submodule of $M$.
+\end{proposition}
 
+\begin{proof}
+    Assume that $M, N$ are left modules, The right modules case is analogous. By \ref{prop-group-morphism-kernel-subgroup}, $\Ker f$ is an subgroup of $M$. Let $a \in A$ and $x \in \Ker f$, we have $f(a x) = a f(x) = a \cdot 0 = 0$, hence $a x \in \Ker f$.
+\end{proof}
+
+\begin{proposition} \label{prop-module-morphism-image-submodule}
+    Let $A$ be a nonzero ring, $M, N$ be two left (resp. right) $A$-modules and $f \colon M \to N$ be an $A$-module morphism. $\Image f$ is a submodule of $N$.
+\end{proposition}
+
+\begin{proof}
+    Assume that $M, N$ are left modules, The right modules case is analogous. By \ref{prop-group-morphism-image-subgroup}, $\Image f$ is an subgroup of $N$. Let $a \in A$ and $y \in \Image f$. There exists $x \in M$ such that $y = f(x)$. We have $a y = a f(x) = f(a x) \in \Image f$.
+\end{proof}
 
 \end{document}

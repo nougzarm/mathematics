@@ -1196,4 +1196,54 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
     If $K$ is a field, then the $K$-modules are exactly the $K$-vector spaces.
 \end{remark}
 
+\begin{remark}
+    Each ring $A$ can be considered as a left $A$ module and a right $A$ module. For this, we define scalar multiplication by the ring multiplication.
+\end{remark}
+
+\begin{remark}
+    The data for a $\mathbb{Z}$-module is equivalent to the data for an abelian group.
+\end{remark}
+
+\begin{definition} \label{def-module-morphism}
+    Let $A$ be a ring and $M, N$ be two left (resp. right) $A$-modules. A map $f \colon M \to N$ is called $A$-module morphism (or $A$-linear map) if it is additive group morphism such that for all $a \in A$ and $x \in M$, we have $f(a x) = a f(x)$ (resp. $f(xa) = f(x) a$). 
+\end{definition}
+
+\begin{proposition} \label{prop-module-morphism-composition}
+    Let $A$ be a ring. The composition of morphisms of left (resp. right) $A$-modules is an $A$-module morphism.
+\end{proposition}
+
+\begin{proof}
+    The composition is a group morphism by \ref{prop-group-morphism-composition}. The scalar multiplication property is clearly preserved.
+\end{proof}
+
+\begin{remark}[Identity morphism]
+    Let $A$ be a ring and $M$ be a left (resp. right) module. The identity map of $M$ is an $A$-module morphism.
+\end{remark}
+
+\begin{definition} \label{def-module-isomorphism}
+    Let $A$ be a ring. A morphism of left (resp. right) $A$-modules is called isomorphism if it is bijective.
+\end{definition}
+
+\begin{proposition} \label{prop-module-morphism-reversibility}
+    Let $A$ be a ring and $M, N$ be two left (resp. right) $A$-modules. If $f \colon M \to N$ is an $A$-modules isomorphism, then $f^{-1}$ is an $A$-modules morphism. Moreover, it is an $A$-module isomorphism.
+\end{proposition}
+
+\begin{proof}
+    Assume that $M, N$ are left $A$-modules. By \ref{thm-group-isomorphism-inverse}, $f^{-1} \colon N \to M$ is an additive group morphism. Let $a \in A$ and $y \in N$. By surjectivity of $f$, there exists $x \in M$ such that $y = f(x)$. We have $f^{-1}(a y) = f^{-1}(a f(x)) = f^{-1}(f(a x)) = a x = a f^{-1}(y)$. Hence, $f^{-1}$ is an $A$-module morphism.
+\end{proof}
+
+\begin{definition} \label{def-submodule}
+    Let $A$ be a nonzero ring and $M$ be a left (resp. right) $A$-module. A submodule of $M$ is a additive subgroup $N \subset M$ such that for all $a \in A$ and $x \in N$, we have $ax \in N$ (resp. $xa \in N$).
+\end{definition}
+
+\begin{proposition} \label{prop-submodule-canonical-structure}
+    Let $A$ be a nonzero ring and $M$ be a left (resp. right) $A$-module. A submodule of $M$ has a canonical structure of left (resp. right) $A$-module, induced by the module structure of $M$.
+\end{proposition}
+
+\begin{remark}[Submodules of a ring]
+    Let $A$ be a ring, viewed as a left (resp. right) $A$-module. Then the submodules of $A$ are exactly the left (resp. right) ideals.
+\end{remark}
+
+
+
 \end{document}

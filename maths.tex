@@ -556,8 +556,12 @@
     \]
 \end{remark}
 
+\begin{definition} \label{def-unital-ring}
+    A ring $A$ is called \emph{unital} (or \emph{nonzero}) if it is not the trivial ring $\lbrace O_{A} \rbrace$.
+\end{definition}
+
 \begin{remark} \label{rem-ring-trivial-ring}
-    In a ring $A$, we have $0 = 1$ if and only if, $A = \lbrace 0 \rbrace$.
+    In a ring $A$, we have $0_{A} = 1_{A}$ if and only if, $A = \lbrace 0_{A} \rbrace$.
 \end{remark}
 
 \begin{definition} \label{def-ring-invertible}
@@ -1163,7 +1167,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
 
 \newpage
 \section{Modules}
-\subsection{Generalities}
+\subsection{Modules, morphisms and submodules}
 
 \begin{definition} \label{def-lr-module}
     Let $A$ be a nonzero ring. A \emph{left $A$-module} (resp. \emph{right $A$-module}) $M$ consists of an abelian group $(M, +)$ and an operation
@@ -1204,12 +1208,14 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
     The data for a $\mathbb{Z}$-module is equivalent to the data for an abelian group.
 \end{remark}
 
+\subsubsection{Module morphisms}
+
 \begin{definition} \label{def-module-morphism}
-    Let $A$ be a ring and $M, N$ be two left (resp. right) $A$-modules. A map $f \colon M \to N$ is called $A$-module morphism (or $A$-linear map) if it is additive group morphism such that for all $a \in A$ and $x \in M$, we have $f(a x) = a f(x)$ (resp. $f(xa) = f(x) a$). 
+    Let $A$ be a nonzero ring and $M, N$ be two left (resp. right) $A$-modules. A map $f \colon M \to N$ is called $A$-module morphism (or $A$-linear map) if it is additive group morphism such that for all $a \in A$ and $x \in M$, we have $f(a x) = a f(x)$ (resp. $f(xa) = f(x) a$). 
 \end{definition}
 
 \begin{proposition} \label{prop-module-morphism-composition}
-    Let $A$ be a ring. The composition of morphisms of left (resp. right) $A$-modules is an $A$-module morphism.
+    Let $A$ be a nonzero ring. The composition of morphisms of left (resp. right) $A$-modules is an $A$-module morphism.
 \end{proposition}
 
 \begin{proof}
@@ -1217,15 +1223,15 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
 \end{proof}
 
 \begin{remark}[Identity morphism]
-    Let $A$ be a ring and $M$ be a left (resp. right) module. The identity map of $M$ is an $A$-module morphism.
+    Let $A$ be a nonzero ring and $M$ be a left (resp. right) module. The identity map of $M$ is an $A$-module morphism.
 \end{remark}
 
 \begin{definition} \label{def-module-isomorphism}
-    Let $A$ be a ring. A morphism of left (resp. right) $A$-modules is called isomorphism if it is bijective.
+    Let $A$ be a nonzero ring. A morphism of left (resp. right) $A$-modules is called isomorphism if it is bijective.
 \end{definition}
 
 \begin{proposition} \label{prop-module-morphism-reversibility}
-    Let $A$ be a ring and $M, N$ be two left (resp. right) $A$-modules. If $f \colon M \to N$ is an $A$-modules isomorphism, then $f^{-1}$ is an $A$-modules morphism. Moreover, it is an $A$-module isomorphism.
+    Let $A$ be a nonzero ring and $M, N$ be two left (resp. right) $A$-modules. If $f \colon M \to N$ is an $A$-modules isomorphism, then $f^{-1}$ is an $A$-modules morphism. Moreover, it is an $A$-module isomorphism.
 \end{proposition}
 
 \begin{proof}
@@ -1233,12 +1239,14 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
 \end{proof}
 
 \begin{definition} \label{def-module-morphism-kernel-image}
-    Let $A$ be a ring and $f$ be a morphism of left (resp. right) $A$-modules.
-     \begin{enumerate}[label=(\roman*)]
+    Let $A$ be a nonzero ring and $f$ be a morphism of left (resp. right) $A$-modules.
+    \begin{enumerate}[label=(\roman*)]
         \item The kernel of $f$, denoted by $\Ker f$, is her kernel as a group morphism.
         \item The image of $f$, denoted by $\Image f$, is her image as a group morphism.
     \end{enumerate}
 \end{definition}
+
+\subsubsection{Submodules}
 
 \begin{definition} \label{def-submodule}
     Let $A$ be a nonzero ring and $M$ be a left (resp. right) $A$-module. A submodule of $M$ is a additive subgroup $N \subset M$ such that for all $a \in A$ and $x \in N$, we have $ax \in N$ (resp. $xa \in N$).
@@ -1249,7 +1257,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
 \end{proposition}
 
 \begin{remark}[Submodules of a ring]
-    Let $A$ be a ring, viewed as a left (resp. right) $A$-module. Then the submodules of $A$ are exactly the left (resp. right) ideals.
+    Let $A$ be a nonzero ring, viewed as a left (resp. right) $A$-module. Then the submodules of $A$ are exactly the left (resp. right) ideals.
 \end{remark}
 
 \begin{proposition} \label{prop-module-morphism-kernel-submodule}
@@ -1267,5 +1275,33 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
 \begin{proof}
     Assume that $M, N$ are left modules, The right modules case is analogous. By \ref{prop-group-morphism-image-subgroup}, $\Image f$ is an subgroup of $N$. Let $a \in A$ and $y \in \Image f$. There exists $x \in M$ such that $y = f(x)$. We have $a y = a f(x) = f(a x) \in \Image f$.
 \end{proof}
+
+\subsubsection{Ring change}
+
+\begin{proposition} \label{prop-module-ring-change}
+    Let $A, B$ be two nonzero ring and $M$ be a left (resp. right) $B$-module. If $\eta \colon A \to B$ is a ring morphism, then $M$ has a left (resp. right) $A$-module structure. Moreover, the scalar multiplication of this structure is given by
+    \[
+        a \cdot x = \eta(a) \cdot x \quad \text{for all} \; a \in A, x \in M.
+    \]
+\end{proposition}
+
+\begin{proof}
+    Assume that $M, N$ are left modules, The right modules case is analogous. 
+    
+    Let $a, b \in A$ and $x, y \in M$, we have:
+    \begin{enumerate}[label=(\roman*)]
+        \item $a (x + y) = \eta(a) (x + y) = \eta(a) x + \eta(a) y = a x + a y$,
+        \item $(a + b) x = \eta(a + b) x = (\eta(a) + \eta(b)) x = \eta(a) x + \eta(b) x = a x + b x $,
+        \item $(a b) x = \eta(a b) x = (\eta(a) \eta(b)) x = \eta(a) (\eta(b) x) = a (b x)$,
+        \item $1_{A} x = \eta(1_A) x = 1_B x = x$.
+    \end{enumerate}
+    Hence, this induces a left $A$-module structure on $M$.
+\end{proof}
+
+\begin{remark}
+    Given $A, B$ be two nonzero ring. A ring morphism $A \to B$ induces a left (resp. right) $A$-module structure on $B$ and on any its left (resp. right) ideal.
+\end{remark}
+
+\subsection{Products and direct sums}
 
 \end{document}

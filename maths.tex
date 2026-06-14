@@ -130,7 +130,7 @@
     Let $f \colon M \to M^{\prime}$ and $g \colon M^{\prime} \to M^{\prime \prime}$ be two magma morphisms. For all $a, b \in M$, we have:
     \[
         \begin{aligned}
-            (f \circ g)(a \ast_{M} b)
+            (g \circ f)(a \ast_{M} b)
                 &= g\big( f(a \ast_{M} b) \big) \\
                 &= g\big( f(a) \ast_{M^{\prime}} f(b) \big) \\
                 &= g\big( f(a) \big) \ast_{M^{\prime \prime}} g\big( f(b) \big) \\
@@ -556,8 +556,8 @@
     \]
 \end{remark}
 
-\begin{definition} \label{def-unital-ring}
-    A ring $A$ is called \emph{unital} (or \emph{nonzero}) if it is not the trivial ring $\lbrace O_{A} \rbrace$.
+\begin{definition} \label{def-nonzero-ring}
+    A ring $A$ is called \emph{nonzero} if it is not the trivial ring $\lbrace O_{A} \rbrace$.
 \end{definition}
 
 \begin{remark} \label{rem-ring-trivial-ring}
@@ -1241,8 +1241,8 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
 \begin{definition} \label{def-module-morphism-kernel-image}
     Let $A$ be a nonzero ring and $f$ be a morphism of left (resp. right) $A$-modules.
     \begin{enumerate}[label=(\roman*)]
-        \item The kernel of $f$, denoted by $\Ker f$, is her kernel as a group morphism.
-        \item The image of $f$, denoted by $\Image f$, is her image as a group morphism.
+        \item The kernel of $f$, denoted by $\Ker f$, is its kernel as a group morphism.
+        \item The image of $f$, denoted by $\Image f$, is its image as a group morphism.
     \end{enumerate}
 \end{definition}
 

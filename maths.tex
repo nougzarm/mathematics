@@ -974,6 +974,47 @@ Let $f \colon A \to B$ be a ring morphism. There exists an unique ring isomorphi
     Omitted.
 \end{proof}
 
+\begin{lemma} \label{lem-union-totally-ordered-ideals}
+    Let $R$ be a commutative ring and $T$ be a non-empty set of ideals of $A$. If $T$ is totally ordered with respect to inclusion, then $\mathfrak{a} = \bigcup_{I \in T} I$ is an ideal of $R$.
+\end{lemma}
+
+\begin{proof}
+    Since $T$ is non-empty, hence $\mathfrak{a}$ is also non-empty. Let $x, y \in \mathfrak{a}$; there exists $I, J \in T$ such that $x \in I$ and $y \in J$. Since $T$ is totally ordered, we have $I \subset J$ or $J \subset I$, hence $x - y \in I$ or $x - y \in J$. So, $x - y \in \mathfrak{a}$ and $\mathfrak{a}$ is an additive subgroup by \ref{prop-subgroup-criterion}. Let $a \in R$ and $x \in \mathfrak{a}$; there exists $I \in T$ such that $x \in I$. Since $I$ is an ideal, hence $a x \in I$ and then $a x \in \mathfrak{a}$.
+\end{proof}
+
+\begin{lemma} \label{lem-prime-ideal-avoiding-multiplicative-subset}
+    Let $R$ be a commutative ring and $S \subset R$ a multiplicative subset (see Definition~\ref{def-ring-multiplicative-subset}). Let $I \subset R$ be an ideal such that $I \cap S = \emptyset$, and let $\mathcal{T}$ be the set of ideals containing $I$ that are disjoint from $S$. Then:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\mathcal{T}$ has a maximal element with respect to inclusion.
+        \item Any maximal element of $\mathcal{T}$ is a prime ideal of $A$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    To show this, we use the Zorn's lemma on $\mathcal{T}$. To start, we ensure that the hypotheses of the lemma are satisfied. Let $T \subset \mathcal{T}$ be a subset totally ordered; let's verify that $T$ has an upper bound (in $\mathcal{T}$). If $T = \emptyset$, then $I$ is an upper bound for $T$ since $I$ is a minimal element of $\mathcal{T}$. If $T$ is non-empty; let $\mathfrak{a} = \bigcup_{J \in T} J$ who is an ideal of $R$ by \ref{lem-union-totally-ordered-ideals}. Moreover, $\mathfrak{a}$ is disjoint from $S$ (and it contains $I$), hence $\mathfrak{a} \in \mathcal{T}$. From definition of $\mathfrak{a}$, we have for all $\mathfrak{b} \in \mathcal{T}$:
+    \[
+        \mathfrak{a} \subset \mathfrak{b} \iff \forall J \in T, J \subset \mathfrak{b},
+    \]
+    hence $\mathfrak{a}$ is the upper bound of $T$ in $\mathcal{T}$.
+
+    We now apply Zorn's lemma to $\mathcal{T}$ and we obtain (i). Let's prove (ii); Let $\mathfrak{p}$ be a maximal element of $\mathcal{T}$. Since $\mathfrak{p} \cap S = \emptyset$, hence $1 \not \in \mathfrak{p}$ and so $\mathfrak{p} \neq R$. Since $\mathfrak{p}$ is a maximum of $\mathcal{T}$, hence the sum ideal $\mathfrak{p} + (x)$ is not an element of $\mathcal{T}$. Moreover, since $\mathfrak{p} + (x)$ contains $I$, we have $(\mathfrak{p} + (x)) \cap S \neq \emptyset$; There exists $s \in S, \; u \in \mathfrak{p}$ and $a \in R$ such that $s = u + a x$. In the same way, if $y \in R \setminus \mathfrak{p}$; there exists $t \in S, \; v \in \mathfrak{p}$ and $b \in R$ such that $t = v + b y$. We have:
+    \[
+        s t = u v + a x v + b y u + a b x y
+    \]
+    If $x y \in \mathfrak{p}$, then $s t \in \mathfrak{p}$. Since $s t \in S$, this implies $\mathfrak{p} \cap S \neq \emptyset$, which is contradictory. We have just shown that:
+    \[
+        x, y \in R \setminus \mathfrak{p} \implies x y \in R \setminus \mathfrak{p}
+    \]
+\end{proof}
+
+\begin{proposition} \label{prop-ideal-included-in-maximal-ideal}
+    Let $R$ be a commutative ring and an ideal $I \subset R$ such that $I \neq R$ Then there exists a maximal ideal containing $I$.
+\end{proposition}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
 \subsection{Localization, Field of fractions}
 \subsubsection{Localization}
 

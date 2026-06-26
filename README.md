@@ -1,6 +1,6 @@
 # Mathematics
 
-An open-source repository dedicated to pure mathematics foundations and structures.
+Repository dedicated to pure mathematics foundations and structures.
 
 ## 🚧 Project Status: Work in Progress (WIP)
 This project is currently under active development. Content, proofs, and definitions are being continuously added, structured, and refined.

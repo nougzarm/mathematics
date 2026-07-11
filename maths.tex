@@ -770,7 +770,7 @@ In this work, we assume that the reader is familiar with Zermelo-Fraenkel set th
     \[
         \forall a, b \in A, \; \pi(a) \cdot \pi(b) = \pi(ab)
     \]
-    To show that this definition is correct, it requires to show that $\pi(ab) = \pi(a^{\prime} b^{\prime})$ for all $(a, b), (a^{\prime}, b^{\prime}) \in A^2$ such that $\pi(a) = \pi(a^{\prime})$ and $\pi(b) = \pi(b^{\prime})$. However, $\pi(x) = \pi(y)$  $x - y \in I$. Hence, it suffices to show that $ab - a^{\prime} b^{\prime} \in I$. To see it: $ab - a^{\prime} b^{\prime} = a(b - b^{\prime}) + (a - a^{\prime})b^{\prime} \in I$. To finish, the surjectivity of $\pi$ implies that this operation is well-defined on all $A / I$.
+    To show that this definition is correct, it requires to show that $\pi(ab) = \pi(a^{\prime} b^{\prime})$ for all $(a, b), (a^{\prime}, b^{\prime}) \in A^2$ such that $\pi(a) = \pi(a^{\prime})$ and $\pi(b) = \pi(b^{\prime})$. However, $\pi(x) = \pi(y) \iff x - y \in I$. Hence, it suffices to show that $ab - a^{\prime} b^{\prime} \in I$. To see it: $ab - a^{\prime} b^{\prime} = a(b - b^{\prime}) + (a - a^{\prime})b^{\prime} \in I$. To finish, the surjectivity of $\pi$ implies that this operation is well-defined on all $A / I$.
 \end{proof}
 
 \begin{definition} \label{def-ring-quotient}
@@ -1012,7 +1012,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \end{proposition}
 
 \begin{proof}
-    By hypothesis $I \neq R$, hence it is disjoint from $S = \lbrace 1 \rbrace$. We use \ref{lem-prime-ideal-avoiding-multiplicative-subset}; So the set of ideals containing $I$ and being disjoint from $S$ has a maximal element, denoted by $J$. Moreover, by \ref{prop-ring-maximal-ideal-eq} we deduce that $J$ is an maximal ideal.
+    By hypothesis $I \neq R$, hence it is disjoint from $S = \lbrace 1 \rbrace$. We use \ref{lem-prime-ideal-avoiding-multiplicative-subset}; So the set of ideals containing $I$ and being disjoint from $S$ has a maximal element, denoted by $J$. Moreover, by \ref{prop-ring-maximal-ideal-eq} we deduce that $J$ is a maximal ideal.
 \end{proof}
 
 \begin{corollary} \label{cor-invertible-element-in-maximal-ideal}
@@ -1359,7 +1359,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \end{proof}
 
 \begin{remark}
-    Given $A, B$ be two nonzero rings. A ring morphism $A \to B$ induces a left (resp. right) $A$-module structure on $B$ and on any its left (resp. right) ideal.
+    Given $A, B$ be two nonzero rings. A ring morphism $A \to B$ induces a left (resp. right) $A$-module structure on $B$ and on any of its left (resp. right) ideal.
 \end{remark}
 
 \subsection{Products and direct sums}

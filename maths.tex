@@ -1363,5 +1363,47 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \end{remark}
 
 \subsection{Products and direct sums}
+\subsubsection{Products}
+
+\begin{proposition} \label{prop-module-product}
+    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules indexed by $I$. Then the product $\prod\limits_{i \in I} M_i$, with the following operations:
+    \[
+        (x_i)_{i \in I} + (y_i)_{i \in I} = (x_i + y_i)_{i \in I} \quad \text{and} \quad a \cdot (x_i)_{i \in I} = (a x_i)_{i \in I}
+    \]
+    is a left (resp. right) $A$-module.
+\end{proposition}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\begin{definition}
+    The module structure defined as in \ref{prop-module-product} is called the \emph{product module}.
+\end{definition}
+
+\begin{definition} \label{def-module-product-finite-support}
+    Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a family of left (resp. right) $A$-modules. 
+    The \emph{support} of an element $(x_i)_{i \in I} \in \prod_{i \in I} M_i$ is the set of indices $i \in I$ such that $x_i \neq 0_{M_i}$. 
+    We say that $(x_i)_{i \in I}$ has \emph{finite support} if its support is a finite set.
+\end{definition}
+
+\subsubsection{Direct sums}
+
+\begin{definition} \label{def-module-direct-sum}
+    Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules. 
+    The \emph{direct sum} of the family $(M_i)_{i \in I}$, denoted by $\bigoplus\limits_{i \in I} M_i$, is the subset of the product module $\prod\limits_{i \in I} M_i$ consisting of all elements with finite support.
+\end{definition}
+
+\begin{proposition} \label{prop-module-direct-sum-submodule}
+    Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules. The direct sum $\bigoplus\limits_{i \in I} M_i$ is a left (resp. right) $A$-module.
+\end{proposition}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\begin{remark}
+    When the index set $I$ is finite, the notions of products and direct sums are equivalent.
+\end{remark}
 
 \end{document}

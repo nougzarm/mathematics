@@ -427,7 +427,7 @@ In this work, we assume that the reader is familiar with Zermelo-Fraenkel set th
 \end{proposition}
 
 \begin{proof}
-    The if condition: Let $x, x^{\prime} \in G$ be such that $f(x) = f(x^{\prime})$, which is equivalent to $f(x) f(x^{\prime})^{-1} = e_{G^{\prime}}$. However, $f(x) f(x^{\prime})^{-1} = f(x) f((x^{\prime})^{-1}) = f(x (x^{\prime})^{-1})$. Which implies, by hypothesis $x (x^{\prime})^{-1} = e_{G}$. So $x = x^{\prime}$. The converse way is obvious.
+    The if condition: Let $x, x^{\prime} \in G$ be such that $f(x) = f(x^{\prime})$, which is equivalent to $f(x) f(x^{\prime})^{-1} = e_{G^{\prime}}$. However, $f(x) f(x^{\prime})^{-1} = f(x) f((x^{\prime})^{-1}) = f(x (x^{\prime})^{-1})$. Which implies, by hypothesis $x (x^{\prime})^{-1} = e_{G}$. So $x = x^{\prime}$. The converse is obvious.
 \end{proof}
 
 \begin{definition} \label{def-group-morphism-image}
@@ -568,7 +568,7 @@ In this work, we assume that the reader is familiar with Zermelo-Fraenkel set th
 \end{remark}
 
 \begin{definition} \label{def-nonzero-ring}
-    A ring $A$ is called \emph{nonzero} if it is not the trivial ring $\lbrace O_{A} \rbrace$.
+    A ring $A$ is called \emph{nonzero} if it is not the trivial ring $\lbrace 0_{A} \rbrace$.
 \end{definition}
 
 \begin{remark} \label{rem-ring-trivial-ring}
@@ -954,7 +954,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \begin{proof}
     Let $x \in R$ be nilpotent and $I \subset R$ be a prime ideal. The image of $x$ in $R / I$ is also nilpotent. However $R / I$ is an integral domain, hence the image of $x$ is zero, which implies that $x \in I$.
     
-    The converse way is omitted.
+    The converse is omitted.
 \end{proof}
 
 \subsubsection{Maximal ideals}
@@ -1309,7 +1309,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \subsubsection{Submodules}
 
 \begin{definition} \label{def-submodule}
-    Let $A$ be a nonzero ring and $M$ be a left (resp. right) $A$-module. A submodule of $M$ is a additive subgroup $N \subset M$ such that for all $a \in A$ and $x \in N$, we have $ax \in N$ (resp. $xa \in N$).
+    Let $A$ be a nonzero ring and $M$ be a left (resp. right) $A$-module. A submodule of $M$ is an additive subgroup $N \subset M$ such that for all $a \in A$ and $x \in N$, we have $ax \in N$ (resp. $xa \in N$).
 \end{definition}
 
 \begin{proposition} \label{prop-submodule-canonical-structure}
@@ -1333,7 +1333,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \end{proposition}
 
 \begin{proof}
-    Assume that $M, N$ are left modules, The right modules case is analogous. By \ref{prop-group-morphism-image-subgroup}, $\Image f$ is an subgroup of $N$. Let $a \in A$ and $y \in \Image f$. There exists $x \in M$ such that $y = f(x)$. We have $a y = a f(x) = f(a x) \in \Image f$.
+    Assume that $M, N$ are left modules, The right modules case is analogous. By \ref{prop-group-morphism-image-subgroup}, $\Image f$ is a subgroup of $N$. Let $a \in A$ and $y \in \Image f$. There exists $x \in M$ such that $y = f(x)$. We have $a y = a f(x) = f(a x) \in \Image f$.
 \end{proof}
 
 \subsubsection{Ring change}
@@ -1381,6 +1381,35 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
     The module structure defined as in \ref{prop-module-product} is called the \emph{product module}.
 \end{definition}
 
+\begin{proposition}
+    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules indexed by $I$. For any $j \in I$, the projection map 
+    \[
+        \begin{aligned}
+            p_j \colon \prod_{i \in I} M_i &\longrightarrow M_j \\
+            (x_i)_{i \in I} &\longmapsto x_j
+        \end{aligned}
+    \]
+    is a linear map (morphism of $A$-modules).
+\end{proposition}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\begin{theorem}
+    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules indexed by $I$. Let $M^{\prime}$ be a left (resp. right) $A$-module and $f_i \colon M^{\prime} \to M_i$ be a linear map for any $i \in I$. Then there exists a unique linear map
+    \[
+        \begin{aligned}
+            f \colon M^{\prime} &\longrightarrow \prod_{i \in I} M_i
+        \end{aligned}
+    \]
+    such that $f_i = p_i \circ f$, for all $i \in I$.
+\end{theorem}
+
+\begin{proof}
+    The linear map $f$ is given by $x \mapsto (f_i(x))_{i \in I}$.
+\end{proof}
+
 \begin{definition} \label{def-module-product-finite-support}
     Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a family of left (resp. right) $A$-modules. 
     The \emph{support} of an element $(x_i)_{i \in I} \in \prod_{i \in I} M_i$ is the set of indices $i \in I$ such that $x_i \neq 0_{M_i}$. 
@@ -1405,5 +1434,33 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \begin{remark}
     When the index set $I$ is finite, the notions of products and direct sums are equivalent.
 \end{remark}
+
+\begin{proposition}
+    Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules. For any $j \in I$, let the injection map
+    \[
+        \begin{aligned}
+            \iota_j \colon M_j &\longrightarrow \bigoplus\limits_{i \in I} M_i
+        \end{aligned}
+    \]
+    which maps $x$ to $(y_i)_{i \in I}$ such that $y_j = x$ and $y_i = 0_{M_i}$ for $i \neq j$. Then $\iota_j$ is an injective linear map.
+\end{proposition}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\begin{proposition}
+    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules indexed by $I$. Let $M^{\prime}$ be a left (resp. right) $A$-module and $f_i \colon M_i \to M^{\prime}$ be a linear map for any $i \in I$. Then there exists a unique linear map
+    \[
+        \begin{aligned}
+            f \colon \bigoplus\limits_{i \in I} M_i &\longrightarrow M^{\prime}
+        \end{aligned}
+    \]
+    such that $f_i = f \circ \iota_i$, for all $i \in I$.
+\end{proposition}
+
+\begin{proof}
+    Omitted. 
+\end{proof}
 
 \end{document}

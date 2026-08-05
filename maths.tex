@@ -1366,7 +1366,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \subsubsection{Products}
 
 \begin{proposition} \label{prop-module-product}
-    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules indexed by $I$. Then the product $\prod\limits_{i \in I} M_i$, with the following operations:
+    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a family of left (resp. right) $A$-modules indexed by $I$. Then the product $\prod\limits_{i \in I} M_i$, with the following operations:
     \[
         (x_i)_{i \in I} + (y_i)_{i \in I} = (x_i + y_i)_{i \in I} \quad \text{and} \quad a \cdot (x_i)_{i \in I} = (a x_i)_{i \in I}
     \]
@@ -1382,7 +1382,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \end{definition}
 
 \begin{proposition}
-    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules indexed by $I$. For any $j \in I$, the projection map 
+    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a family of left (resp. right) $A$-modules indexed by $I$. For any $j \in I$, the projection map 
     \[
         \begin{aligned}
             p_j \colon \prod_{i \in I} M_i &\longrightarrow M_j \\
@@ -1397,7 +1397,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \end{proof}
 
 \begin{theorem}
-    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules indexed by $I$. Let $M^{\prime}$ be a left (resp. right) $A$-module and $f_i \colon M^{\prime} \to M_i$ be a linear map for any $i \in I$. Then there exists a unique linear map
+    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a family of left (resp. right) $A$-modules indexed by $I$. Let $M^{\prime}$ be a left (resp. right) $A$-module and $f_i \colon M^{\prime} \to M_i$ be a linear map for any $i \in I$. Then there exists a unique linear map
     \[
         \begin{aligned}
             f \colon M^{\prime} &\longrightarrow \prod_{i \in I} M_i
@@ -1419,12 +1419,12 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \subsubsection{Direct sums}
 
 \begin{definition} \label{def-module-direct-sum}
-    Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules. 
+    Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a family of left (resp. right) $A$-modules. 
     The \emph{direct sum} of the family $(M_i)_{i \in I}$, denoted by $\bigoplus\limits_{i \in I} M_i$, is the subset of the product module $\prod\limits_{i \in I} M_i$ consisting of all elements with finite support.
 \end{definition}
 
 \begin{proposition} \label{prop-module-direct-sum-submodule}
-    Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules. The direct sum $\bigoplus\limits_{i \in I} M_i$ is a left (resp. right) $A$-module.
+    Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a family of left (resp. right) $A$-modules. The direct sum $\bigoplus\limits_{i \in I} M_i$ is a left (resp. right) $A$-module.
 \end{proposition}
 
 \begin{proof}
@@ -1436,7 +1436,7 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
 \end{remark}
 
 \begin{proposition}
-    Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules. For any $j \in I$, let the injection map
+    Let $A$ be a nonzero ring, $I$ be a set, and $(M_i)_{i \in I}$ be a family of left (resp. right) $A$-modules. For any $j \in I$, let the injection map
     \[
         \begin{aligned}
             \iota_j \colon M_j &\longrightarrow \bigoplus\limits_{i \in I} M_i
@@ -1449,15 +1449,15 @@ Let $f \colon A \to B$ be a ring morphism. There exists a unique ring isomorphis
     Omitted.
 \end{proof}
 
-\begin{proposition}
-    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a sequence of left (resp. right) $A$-modules indexed by $I$. Let $M^{\prime}$ be a left (resp. right) $A$-module and $f_i \colon M_i \to M^{\prime}$ be a linear map for any $i \in I$. Then there exists a unique linear map
+\begin{theorem}
+    Let $A$ be a nonzero ring, $I$ be a set and $(M_i)_{i \in I}$ be a family of left (resp. right) $A$-modules indexed by $I$. Let $M^{\prime}$ be a left (resp. right) $A$-module and $f_i \colon M_i \to M^{\prime}$ be a linear map for any $i \in I$. Then there exists a unique linear map
     \[
         \begin{aligned}
             f \colon \bigoplus\limits_{i \in I} M_i &\longrightarrow M^{\prime}
         \end{aligned}
     \]
     such that $f_i = f \circ \iota_i$, for all $i \in I$.
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
     Omitted. 
